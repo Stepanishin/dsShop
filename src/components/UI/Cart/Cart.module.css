@@ -1,0 +1,11 @@
+.Cart_data_button_add {
+    background: #3366FF;
+    border-radius: 3px;
+    width: 40px;
+    height: 40px;
+}
+
+.Cart_data_button_complete {
+    width: 40px;
+    height: 40px;
+}

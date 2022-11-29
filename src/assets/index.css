@@ -1,0 +1,38 @@
+.App {
+    background: #181923;
+    min-height: 100vh;
+}
+.container {
+    margin: 0 auto;
+    padding: 0 50px;
+    max-width: 1440px;
+}
+
+* {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: white;
+}
+
+button {
+    background: none;
+}
+
+.display_flex {
+    display: flex !important;
+}
+
+.display_none {
+    display: none !important;
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        margin: 0 auto;
+        padding: 0 5px;
+        max-width: 1440px;
+    }
+}

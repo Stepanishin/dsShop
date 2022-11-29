@@ -1,0 +1,18 @@
+.Logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.Logo img {
+    width: 148px;
+    height: 38px;
+}
+
+@media screen and (max-width: 500px) {
+    .Logo img {
+        width: 128px;
+        height: 38px;
+    }
+}
