@@ -5,6 +5,7 @@ import plus from '../../assets/img/plus.svg'
 import deleteCardSvg from '../../assets/img/delete.svg'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { addCardSlice } from '../../store/reducers/getProductToBasket';
+import SubmitForm from '../SubmitForm/SubmitForm';
 
 
 const Basket:FC = () => {
@@ -119,9 +120,11 @@ const Basket:FC = () => {
                     </div>
                     <div className={styles.Basket_price_container}>
                         <p><b>Total</b></p>
-                        <p><b>$ {(totalPrice.Subtotal === 0 ? 0 : totalPrice.Shipping + totalPrice.Subtotal + totalPrice.Tax).toLocaleString('ru')} + $NCTR {totalPrice.$NCTR}</b></p>
+                        <p><b>$USDC {(totalPrice.Subtotal === 0 ? 0 : totalPrice.Shipping + totalPrice.Subtotal + totalPrice.Tax).toLocaleString('ru')} + $NCTR {totalPrice.$NCTR}</b></p>
                     </div>                   
                 </div>
+
+                <SubmitForm />
             </aside>
     );
 };

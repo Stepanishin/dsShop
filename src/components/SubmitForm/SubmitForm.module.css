@@ -1,0 +1,45 @@
+.SubmitForm {
+    border-top: 1px solid #CFCFCF;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 41px;
+}
+
+.SubmitForm_inputs_container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.SubmitForm_input_wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.SubmitForm_input_wrapper input {
+    background: none;
+    border: 1px solid gray;
+    border-radius: 2px;
+}
+
+.SubmitForm_button {
+    margin-top: 30px;
+    background-color: #4f46e5;
+    border: none;
+    border-radius: 9px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    width: 120px;
+    height: 42px;
+    align-self: center;
+}
+.SubmitForm_button:hover {
+    background-color: #4338ca;
+}
+
+@media screen and (max-width: 500px) {
+    .SubmitForm {
+        padding: 40px 5px;
+    }
+}

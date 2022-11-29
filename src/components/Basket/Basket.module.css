@@ -88,13 +88,19 @@
 }
 
 @media screen and (max-width: 500px) {
+    .Basket_title {
+        padding: 40px 5px 0 5px;  
+    }
     .Basket {
         min-width: 200px;
         max-width: 410px;
-        width: 90vw;
+        width: 93vw;
     }
     .Basket_order_container {
         padding: 40px 5px 40px 5px;  
         gap: 64px;
+    }
+    .Basket_list_container {
+        padding: 40px 5px; 
     }
 }
