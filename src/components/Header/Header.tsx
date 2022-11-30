@@ -63,6 +63,11 @@ const Header: FC = () => {
         <header className='Header' ref={ref}>
             <div className="container Header_container">
                 <Logo />
+                <div className='Header_links_container'>
+                    <a className='Header_links_item' href='https://dustcity.world/'  target="_blank" rel="noreferrer">Dust City World</a>
+                    <a className='Header_links_item' href='https://dustcity.world/'  target="_blank" rel="noreferrer">Dust City Court</a>
+                    <a className='Header_links_item' href='https://dustcity.world/'  target="_blank" rel="noreferrer">NFT Builder</a>
+                </div>
                 <div className="header_btns_container">
                     <div className="header_btns_container">
                         <img id='basketImg' className="header_cart" src={cart} alt="Cart" width='24px' height='21px' />

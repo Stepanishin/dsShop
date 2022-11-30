@@ -41,9 +41,44 @@
     position: relative;
 }
 
+.Header_links_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 42px;
+}
+
+.Header_links_item {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 121%;
+    letter-spacing: .80px !important;
+    color: #f5f7fa;
+    text-decoration: none;
+    white-space: nowrap;
+    opacity: .6;
+    transition: all .15s ease-in;
+    cursor: pointer;
+}
+.Header_links_item:hover {
+    opacity: 1;
+}
+@media screen and (max-width: 1200px) {
+    .Header_links_container {
+        gap: 18px;
+    }
+}
+@media screen and (max-width: 750px) {
+    .Header_links_container {
+       display: none;
+    }
+}
 @media screen and (max-width: 500px) {
     .header_btns_container {
         width: 153px;
         gap: 10px;
+    }
+    .header_cart_quantity {
+        right: 0px !important;
     }
 }
