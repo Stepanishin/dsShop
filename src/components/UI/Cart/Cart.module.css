@@ -5,6 +5,10 @@
     height: 40px;
 }
 
+.Cart_data_button_add:hover {
+    background-color: #4338ca;
+}
+
 .Cart_data_button_complete {
     width: 40px;
     height: 40px;
