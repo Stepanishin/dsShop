@@ -6,11 +6,12 @@
 }
 
 html {
-    background: #181923;
+    /* background: #181923; */
+    background-color: #0c0d12;
 }
 
 .App {
-    background: #181923;
+    /* background: #181923; */
     min-height: 100vh;
 }
 .container {

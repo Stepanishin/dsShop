@@ -1,6 +1,7 @@
 .Header {
     border-bottom: 1px solid #CFCFCF;
-    
+    position: relative;
+    z-index: 1;
 }
 
 .Header_container {
@@ -12,7 +13,7 @@
 
 .header_cart {
     margin-top: 6px;
-    cursor: pointer;
+    cursor: pointer;    
 }
 
 .header_cart_quantity {

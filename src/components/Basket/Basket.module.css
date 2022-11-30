@@ -5,6 +5,8 @@
     min-height: calc(100vh - 91px);
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 1;
 }
 
 .Basket_title {
@@ -77,9 +79,9 @@
         position: absolute;
         top: 91px;
         bottom: 0;
-        max-width: 97vw;
+        max-width: 97vw !important;
         width: 97vw;
-        left: -2px;
+        border-left: none;
     }
 
     .item_data_container {
@@ -94,7 +96,7 @@
     .Basket {
         min-width: 200px;
         max-width: 410px;
-        width: 95vw;
+        width: 94vw;
     }
     .Basket_order_container {
         padding: 40px 5px 40px 5px;  

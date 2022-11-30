@@ -9,6 +9,9 @@ const ShopPage:FC = () => {
 
     return (
         <main className={styles.ShopPage}>
+            <div className={styles.ShopPage_bg_container}>
+                <div className={styles.ShopPage_bg}></div>
+            </div>
             <Routes>
                     {
                     MainRoutes.map(route => 
