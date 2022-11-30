@@ -27,7 +27,6 @@ const ConnectWallet:FC = () => {
 export default ConnectWallet;
 
 const Content: FC = memo(() => {
-
     return (
         <>
         {
