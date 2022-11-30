@@ -124,7 +124,7 @@ const Basket:FC = () => {
                     </div>                   
                 </div>
 
-                <SubmitForm />
+                <SubmitForm totalPrice={totalPrice} />
             </aside>
     );
 };

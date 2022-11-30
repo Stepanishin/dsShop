@@ -18,7 +18,6 @@
 
 .Basket_order_container {
     border-bottom: 1px solid #CFCFCF;
-    min-height: 371px;
     padding: 40px;  
     display: flex;
     flex-direction: column;
@@ -80,6 +79,7 @@
         bottom: 0;
         max-width: 97vw;
         width: 97vw;
+        left: -2px;
     }
 
     .item_data_container {
@@ -94,7 +94,7 @@
     .Basket {
         min-width: 200px;
         max-width: 410px;
-        width: 93vw;
+        width: 95vw;
     }
     .Basket_order_container {
         padding: 40px 5px 40px 5px;  

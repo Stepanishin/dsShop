@@ -21,6 +21,9 @@
     border: 1px solid gray;
     border-radius: 2px;
 }
+.SubmitForm_input_wrapper input::placeholder {
+    font-size: 10px;
+}
 
 .SubmitForm_button {
     margin-top: 30px;
@@ -33,6 +36,7 @@
     width: 120px;
     height: 42px;
     align-self: center;
+    font-weight: 600;
 }
 .SubmitForm_button:hover {
     background-color: #4338ca;

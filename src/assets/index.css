@@ -1,3 +1,10 @@
+@font-face {
+    font-family: "TTSupermolotNeue"; 
+    src: url("./fonts/TTSupermolotNeue-CondRegular.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+}
+
 html {
     background: #181923;
 }
@@ -13,7 +20,9 @@ html {
 }
 
 * {
-    font-family: 'Roboto';
+    font-family: 'TTSupermolotNeue' !important;
+    letter-spacing: 1px;
+    /* font-family: 'Roboto'; */
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
