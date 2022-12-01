@@ -79,10 +79,9 @@
         position: absolute;
         top: 67px;
         bottom: 0;
-        max-width: 97vw !important;
-        width: 97vw;
         border-left: none;
         height: max-content;
+        max-width: 100%;
     }
 
     .item_data_container {
@@ -95,9 +94,9 @@
         padding: 40px 5px 0 5px;  
     }
     .Basket {
-        min-width: 200px;
-        max-width: 410px;
-        width: 94vw;
+        padding-left:5px;
+        padding-right:5px;
+        min-width: 100%;
     }
     .Basket_order_container {
         padding: 40px 5px 40px 5px;  
