@@ -4,44 +4,44 @@
         "id": 1,
         "name": "Gift Set Hoodie S size + T-shirt S size",
         "image": "../../assets/img/gift.webp",
-        "priceUSDC": 1,
-        "priceNCTR": 1,
+        "priceUSDC": 50,
+        "priceNCTR": 400,
         "modelNumber": "MT91547"
       },
       {
         "id": 2,
         "name": "Gift Set Hoodie M size + T-shirt M size",
         "image": "../../assets/img/gift.webp",
-        "priceUSDC": 1,
-        "priceNCTR": 1,
+        "priceUSDC": 50,
+        "priceNCTR": 400,
         "modelNumber": "MT91548"
       },{
         "id": 3,
         "name": "Gift Set Hoodie L size + T-shirt L size",
         "image": "../../assets/img/sneakers3.png",
-        "priceUSDC": 1,
-        "priceNCTR": 1,
+        "priceUSDC": 50,
+        "priceNCTR": 400,
         "modelNumber": "MT91549"
       },{
         "id": 4,
         "name": "Gift Set Hoodie XL size + T-shirt XL size",
         "image": "../../assets/img/sneakers4.png",
-        "priceUSDC": 1,
-        "priceNCTR": 1,
+        "priceUSDC": 50,
+        "priceNCTR": 400,
         "modelNumber": "MT91550"
       },{
         "id": 5,
         "name": "Gift Set Hoodie XXL size + T-shirt XXL size",
         "image": "../../assets/img/sneakers5.png",
-        "priceUSDC": 1,
-        "priceNCTR": 1,
+        "priceUSDC": 50,
+        "priceNCTR": 400,
         "modelNumber": "MT91551"
       },{
         "id": 6,
         "name": "Super big gift pack",
         "image": "../../assets/img/sneakers6.png",
-        "priceUSDC": 2,
-        "priceNCTR": 2,
+        "priceUSDC": 100,
+        "priceNCTR": 800,
         "modelNumber": "MT91552"
       }
     ]

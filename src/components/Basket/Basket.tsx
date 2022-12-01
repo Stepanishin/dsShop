@@ -82,7 +82,7 @@ const Basket:FC = () => {
                                             <button onClick={decrementQuality} ><img id={`${item.id}`} src={minus} alt="minus" /></button>
                                             <p>{item.quantity}</p>
                                             <button onClick={incrementQuantity} ><img id={`${item.id}`} src={plus} alt="plus" /></button>
-                                            <p>$ {(item.priceUSDC! * item.quantity!).toLocaleString('ru')}</p>
+                                            <p><b><span style={{fontSize:'80%'}}>$USDC</span> {(item.priceUSDC! * item.quantity!).toLocaleString('ru')} <br /> <span style={{fontSize:'80%'}}>$NCTR</span> {(item.priceNCTR! * item.quantity!).toLocaleString('ru')}</b></p>
                                         </div>
                                     </div>
                                     <div>

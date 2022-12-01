@@ -211,43 +211,43 @@ const SubmitForm:FC<ISubmitFormProps> = ({totalPrice}) => {
                 <div className={styles.SubmitForm_input_wrapper}>
                     <label className={styles.title}  htmlFor="surname">Surname*   </label>
                     <div className={styles.link_block}>
-                        <input type="text" name='surname' id='surname' onChange={handleChange} placeholder=" Defo" value={result.surname}/>
+                        <input required type="text" name='surname' id='surname' onChange={handleChange} placeholder=" Defo" value={result.surname}/>
                     </div>
                 </div>
                 <div className={styles.SubmitForm_input_wrapper}>
                     <label className={styles.title}  htmlFor="nickname">Nickname on Telegram*   </label>
                     <div className={styles.link_block}>
-                        <input type="text" name='nickname' id='nickname' onChange={handleChange} placeholder=" @Demiurg"  value={result.nickname}/>
+                        <input required type="text" name='nickname' id='nickname' onChange={handleChange} placeholder=" @Demiurg"  value={result.nickname}/>
                     </div>
                 </div>
                 <div className={styles.SubmitForm_input_wrapper}>
                  <label className={styles.title}  htmlFor="mail">Mail*   </label>
-                 <div className={styles.link_block}>
-                    <input type="text" name='mail' id='mail' onChange={handleChange} placeholder=" john_defo@example.com"  value={result.mail}/>
-                 </div>
+                    <div className={styles.link_block}>
+                        <input required type="text" name='mail' id='mail' onChange={handleChange} placeholder=" john_defo@example.com"  value={result.mail}/>
+                    </div>
                 </div>
                 <div className={styles.SubmitForm_input_wrapper}>
                     <label className={styles.title}  htmlFor="country">Country*  </label>
                     <div className={styles.link_block}>
-                        <input type="text" name='country' id='country' onChange={handleChange} placeholder=" Germany"  value={result.country}/>
+                        <input required type="text" name='country' id='country' onChange={handleChange} placeholder=" Germany"  value={result.country}/>
                     </div>
                 </div>
                 <div className={styles.SubmitForm_input_wrapper}>
                     <label className={styles.title}  htmlFor="city">City*   </label>
                     <div className={styles.link_block}>
-                        <input type="text" name='city' id='city' onChange={handleChange} placeholder=" Berlin"  value={result.city}/>
+                        <input required type="text" name='city' id='city' onChange={handleChange} placeholder=" Berlin"  value={result.city}/>
                     </div>
                 </div>
                 <div className={styles.SubmitForm_input_wrapper}>
                     <label className={styles.title}  htmlFor="zip">Zip Code*   </label>
                     <div className={styles.link_block}>
-                        <input type="text" name='zip' id='zip' onChange={handleChange} placeholder=" 1010"  value={result.zip}/>
+                        <input required type="text" name='zip' id='zip' onChange={handleChange} placeholder=" 1010"  value={result.zip}/>
                     </div>
                 </div>
                 <div className={styles.SubmitForm_input_wrapper}>
                     <label className={styles.title}  htmlFor="adress">Adress*  </label>
                     <div className={styles.link_block}>
-                        <input type="text" name='adress' id='adress' onChange={handleChange} placeholder=" Something Strasse, 10"  value={result.adress}/>
+                        <input required type="text" name='adress' id='adress' onChange={handleChange} placeholder=" Something Strasse, 10"  value={result.adress}/>
                     </div>
                 </div>
 
