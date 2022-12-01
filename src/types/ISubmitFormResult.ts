@@ -1,3 +1,5 @@
+import { ICard } from "./ICard";
+
 export interface ISubmitFormResult {
     name?: string,
     surname?: string,
@@ -10,5 +12,5 @@ export interface ISubmitFormResult {
     wallet?: string,
     sumUSDC?: number,
     sumNCTR?: number,
-    date?: number
+    order?:ICard[],
 }

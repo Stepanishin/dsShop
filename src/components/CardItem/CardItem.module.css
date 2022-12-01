@@ -1,7 +1,6 @@
 .Card {
     width: 250px;
     height: 314px;
-    /* border: 1px solid #E7E7E7; */
     border-radius: 3px;
     padding: 29px 11px;
     display: flex;
@@ -38,4 +37,12 @@
     font-size: 14px;
     line-height: 16px;
     color: white;
+}
+
+.smallLetter {
+    font-size: 80%;
+    font-weight: 600;
+}
+.bigLetter {
+    font-weight: 600;
 }

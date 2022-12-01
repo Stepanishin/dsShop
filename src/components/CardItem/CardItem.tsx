@@ -18,7 +18,10 @@ const CardItem:FC<ICard> = ({ id, name, image, priceUSDC, priceNCTR}) => {
                 <h2 className={styles.Card_name}>{name}</h2>
                 <div className={styles.Card_data_container}>
                     <Cart id={id} name={name} image={image} priceUSDC={priceUSDC} priceNCTR={priceNCTR} />
-                    <p className={styles.Card_data_price}>$ {priceUSDC?.toLocaleString('ru')} + $NCTR {priceNCTR?.toLocaleString('ru')}</p>
+                    <p className={styles.Card_data_price}>
+                        <span className={styles.smallLetter}>$USDC</span> <span className={styles.bigLetter}>{priceUSDC?.toLocaleString('ru')}</span> +
+                        <span className={styles.smallLetter}>$NCTR</span> <span className={styles.bigLetter}>{priceNCTR?.toLocaleString('ru')}</span>
+                    </p>
                 </div>
                
         </div>

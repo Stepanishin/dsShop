@@ -1,8 +1,6 @@
 export interface ISubmitFormProps {
     totalPrice: {
-        Subtotal?: number,
-        Tax?: number,
-        Shipping?: number,
+        $USDC?: number,
         $NCTR?: number,
     }
 }

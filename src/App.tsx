@@ -20,8 +20,24 @@ import {
 import { FC, ReactNode, useMemo } from 'react';
 import { clusterApiUrl } from '@solana/web3.js';
 import ShopPage from './pages/ShopPage/ShopPage';
+import { initializeApp } from "firebase/app";
 
 function App() {
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAua7sHJHNsJz2IhiaASP5LMKJC9vCnmS8",
+    authDomain: "dustcity-7fef1.firebaseapp.com",
+    databaseURL: "https://dustcity-7fef1-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "dustcity-7fef1",
+    storageBucket: "dustcity-7fef1.appspot.com",
+    messagingSenderId: "540698269699",
+    appId: "1:540698269699:web:acf43f8aae50ed77181636"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+
   return (
     <Context>
       <div className="App">

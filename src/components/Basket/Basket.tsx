@@ -11,9 +11,7 @@ import SubmitForm from '../SubmitForm/SubmitForm';
 const Basket:FC = () => {
 
     const [totalPrice, setTotalPrice] = useState({
-        Subtotal: 0,
-        Tax: 5,
-        Shipping: 10,
+        $USDC: 0,
         $NCTR: 0,
     })
 
@@ -29,7 +27,7 @@ const Basket:FC = () => {
             sumUSDC += (card.priceUSDC! * card.quantity!)
             sumNCTR += (card.priceNCTR! * card.quantity!)
         })
-        setTotalPrice(state => ({ ...state, Subtotal: sumUSDC, $NCTR: sumNCTR}));
+        setTotalPrice(state => ({ ...state, $USDC: sumUSDC, $NCTR: sumNCTR}));
     }, [cards])
 
     // Removing an item from the cart
@@ -103,16 +101,8 @@ const Basket:FC = () => {
 
                 <div className={styles.Basket_list_container}>
                     <div className={styles.Basket_price_container}>
-                        <p>Subtotal</p>
-                        <p>$ {(totalPrice.Subtotal).toLocaleString('ru')}</p>
-                    </div>
-                    <div className={styles.Basket_price_container}>
-                        <p>Tax</p>
-                        <p>$ {(totalPrice.Subtotal === 0 ? 0 : 5)}</p>
-                    </div>
-                    <div className={styles.Basket_price_container}>
-                        <p>Shipping</p>
-                        <p>$ {totalPrice.Subtotal === 0 ? 0 : 10}</p>
+                        <p>$USDC</p>
+                        <p>{(totalPrice.$USDC).toLocaleString('ru')}</p>
                     </div>
                     <div className={styles.Basket_price_container}>
                         <p>$NCTR</p>
@@ -120,7 +110,7 @@ const Basket:FC = () => {
                     </div>
                     <div className={styles.Basket_price_container}>
                         <p><b>Total</b></p>
-                        <p><b>$USDC {(totalPrice.Subtotal === 0 ? 0 : totalPrice.Shipping + totalPrice.Subtotal + totalPrice.Tax).toLocaleString('ru')} + $NCTR {totalPrice.$NCTR}</b></p>
+                        <p><b><span style={{fontSize:'80%'}}>$USDC</span> {(totalPrice.$USDC).toLocaleString('ru')} + <span style={{fontSize:'80%'}}>$NCTR</span> {(totalPrice.$NCTR).toLocaleString('ru')}</b></p>
                     </div>                   
                 </div>
 
