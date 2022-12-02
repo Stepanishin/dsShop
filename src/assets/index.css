@@ -6,13 +6,13 @@
 }
 
 html {
-    /* background: #181923; */
     background-color: #0c0d12;
+    overflow-x: hidden;
 }
 
 .App {
-    /* background: #181923; */
     min-height: 100vh;
+    overflow: hidden;
 }
 .container {
     margin: 0 auto;
@@ -23,9 +23,8 @@ html {
 * {
     font-family: 'TTSupermolotNeue' !important;
     letter-spacing: 1px;
-    /* font-family: 'Roboto'; */
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 14px;
     line-height: 16px;
     color: white;
@@ -43,6 +42,16 @@ button {
     display: none !important;
 }
 
+.showModal {
+    display: block !important;
+}
+
+@media screen and (max-width: 768px) {
+    .display_none_cardList {
+        display: none !important;
+    }
+}
+
 @media screen and (max-width: 500px) {
     .container {
         margin: 0 auto;
@@ -50,3 +59,4 @@ button {
         max-width: 1440px;
     }
 }
+

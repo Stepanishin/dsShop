@@ -1,7 +1,7 @@
 .wallet-adapter-button-trigger {
     background-color: #4f46e5 !important;
-    height: 42px!important;
-    width: 110px !important;
+    height: 32px!important;
+    width: 130px !important;
     font-size: 14px !important;
     white-space: nowrap !important;
     padding: 0 10px!important;
@@ -14,4 +14,13 @@
 
 .wallet-adapter-button-trigger:hover {
     background-color: #4338ca !important;
+}
+
+.connectWallet_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #22242B;
+    padding: 3px;
+    border-radius: 9px;
 }

@@ -27,6 +27,7 @@ const SubmitForm:FC<ISubmitFormProps> = ({totalPrice}) => {
         city: '',
         zip: '',
         adress: '',
+        status: 'In processing',
     });
     const connection = new Connection("https://solana-mainnet.g.alchemy.com/v2/IjcuUmymeTy65r4Z0KPaWfm7hsIC5OFK", "confirmed");
     const { publicKey, signTransaction, sendTransaction } = useWallet();
@@ -175,6 +176,7 @@ const SubmitForm:FC<ISubmitFormProps> = ({totalPrice}) => {
                 city: '',
                 zip: '',
                 adress: '',
+                status: 'In processing',
             })
             const newCards = [];
             dispatch(addCard(newCards))
@@ -199,6 +201,8 @@ const SubmitForm:FC<ISubmitFormProps> = ({totalPrice}) => {
 
     return (
         <form className={styles.SubmitForm} onSubmit={setOrder}>
+
+            <h2 className={styles.SubmitForm_title}>Checkout</h2>
             
             <div className={styles.SubmitForm_inputs_container}>
 

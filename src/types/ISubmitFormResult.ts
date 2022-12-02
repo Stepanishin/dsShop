@@ -13,4 +13,5 @@ export interface ISubmitFormResult {
     sumUSDC?: number,
     sumNCTR?: number,
     order?:ICard[],
+    status?: string
 }

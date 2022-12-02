@@ -6,6 +6,8 @@ import deleteCardSvg from '../../assets/img/delete.svg'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { addCardSlice } from '../../store/reducers/getProductToBasket';
 import SubmitForm from '../SubmitForm/SubmitForm';
+import close from '../../assets/img/delete.svg'
+import { showCart } from '../../helpers/showModalWindow';
 
 
 const Basket:FC = () => {
@@ -66,7 +68,10 @@ const Basket:FC = () => {
 
     return (
                 <aside id='basket' className={styles.Basket}>
-                    <h2 className={styles.Basket_title}>My basket</h2>
+                    <h2 className={styles.Basket_title}>My Basket</h2>
+                    <button className={styles.closeBasket} id='closeBasket' onClick={showCart} >
+                        <img src={close} alt="close" />
+                    </button>
                     {
                     cards.length > 0
                     ?
@@ -77,16 +82,18 @@ const Basket:FC = () => {
                                 <div className={styles.Basket_order_item_container} key={item.id}>
                                     <img className={styles.item_data_image} src={require(`../../assets/img/gift.webp`)} alt="sneakers" width='90px' height='51px' />
                                     <div className={styles.item_data_container}>
-                                        <h3>{item.name}</h3>
+                                        <h3 style={{fontWeight: '600'}}>{item.name}</h3>
                                         <div className={styles.item_data_quantity_container}>
-                                            <button onClick={decrementQuality} ><img id={`${item.id}`} src={minus} alt="minus" /></button>
-                                            <p>{item.quantity}</p>
-                                            <button onClick={incrementQuantity} ><img id={`${item.id}`} src={plus} alt="plus" /></button>
-                                            <p><b><span style={{fontSize:'80%'}}>$USDC</span> {(item.priceUSDC! * item.quantity!).toLocaleString('ru')} <br /> <span style={{fontSize:'80%'}}>$NCTR</span> {(item.priceNCTR! * item.quantity!).toLocaleString('ru')}</b></p>
+                                            <div className={styles.item_data_quantity_btnsWrapper}>
+                                                <button className={styles.item_data_quantity_btn} onClick={decrementQuality} id={`${item.id}`}>-</button>
+                                                <p>{item.quantity}</p>
+                                                <button className={styles.item_data_quantity_btn} onClick={incrementQuantity} id={`${item.id}`}>+</button>
+                                            </div>
+                                            <button className={styles.item_data_quantity_removeBtn} onClick={deleteCard} id={`${item.id}`}>Remove</button>
                                         </div>
                                     </div>
-                                    <div>
-                                        <button onClick={deleteCard} ><img id={`${item.id}`} src={deleteCardSvg} alt="delete" /></button>
+                                    <div className={styles.item_data_quantity_priceWrap}>   
+                                        <p><b><span style={{fontSize:'80%'}}>$USDC</span> {(item.priceUSDC! * item.quantity!).toLocaleString('ru')} <br /> <span style={{fontSize:'80%'}}>$NCTR</span> {(item.priceNCTR! * item.quantity!).toLocaleString('ru')}</b></p>
                                     </div>
                                 </div>
                             )
@@ -101,17 +108,9 @@ const Basket:FC = () => {
 
                 <div className={styles.Basket_list_container}>
                     <div className={styles.Basket_price_container}>
-                        <p>$USDC</p>
-                        <p>{(totalPrice.$USDC).toLocaleString('ru')}</p>
-                    </div>
-                    <div className={styles.Basket_price_container}>
-                        <p>$NCTR</p>
-                        <p>{(totalPrice.$NCTR).toLocaleString('ru')}</p>
-                    </div>
-                    <div className={styles.Basket_price_container}>
                         <p><b>Total</b></p>
                         <p><b><span style={{fontSize:'80%'}}>$USDC</span> {(totalPrice.$USDC).toLocaleString('ru')} + <span style={{fontSize:'80%'}}>$NCTR</span> {(totalPrice.$NCTR).toLocaleString('ru')}</b></p>
-                    </div>                   
+                    </div>  
                 </div>
 
                 <SubmitForm totalPrice={totalPrice} />

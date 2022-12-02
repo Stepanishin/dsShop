@@ -1,5 +1,5 @@
 .Header {
-    border-bottom: 1px solid #22242B;
+    /* border-bottom: 1px solid #22242B; */
     position: relative;
     z-index: 1;
 }
@@ -64,22 +64,33 @@
 .Header_links_item:hover {
     opacity: 1;
 }
+
+.header_profile {
+    margin-top: 6px;
+    cursor: pointer;  
+    width: 24px;
+    height: 24px;  
+}
 @media screen and (max-width: 1200px) {
     .Header_links_container {
         gap: 18px;
     }
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 800px) {
     .Header_links_container {
        display: none;
     }
 }
 @media screen and (max-width: 500px) {
     .header_btns_container {
-        width: 153px;
+        width: 180px;
         gap: 10px;
     }
     .header_cart_quantity {
         right: 0px !important;
     }
+}
+
+.showBasket {
+    right: 0 !important;
 }

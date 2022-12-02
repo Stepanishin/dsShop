@@ -12,7 +12,8 @@
 
 @media screen and (max-width: 500px) {
     .Logo img {
-        width: 128px;
-        height: 38px;
+        width: 110px;
+        height: 31px;
+        margin-top: 3px;
     }
 }

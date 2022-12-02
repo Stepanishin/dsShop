@@ -28,20 +28,11 @@ export default ConnectWallet;
 
 const Content: FC = memo(() => {
     return (
-        <>
-        {
-            // publicKey
-            // ?
-            // <WalletMultiButton />
-            // :
-            // <WalletMultiButton 
-        
-            // children={'Connect Wallet'}
-           
-            //  />
-        }
-        <WalletMultiButton />
-        </>
+ 
+            <div className='connectWallet_wrapper'>
+                <WalletMultiButton />
+            </div>
+
 
         
     );
