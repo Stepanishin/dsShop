@@ -67,7 +67,7 @@ const Basket:FC = () => {
     }
 
     return (
-                <aside id='basket' className={styles.Basket}>
+                <nav id='basket' className={styles.Basket}>
                     <h2 className={styles.Basket_title}>My Basket</h2>
                     <button className={styles.closeBasket} id='closeBasket' onClick={showCart} >
                         <img src={close} alt="close" />
@@ -114,7 +114,7 @@ const Basket:FC = () => {
                 </div>
 
                 <SubmitForm totalPrice={totalPrice} />
-            </aside>
+            </nav>
     );
 };
 

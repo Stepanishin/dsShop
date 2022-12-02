@@ -47,6 +47,9 @@ button {
 }
 
 @media screen and (max-width: 768px) {
+    body {
+        /* position:fixed; */
+   }
     .display_none_cardList {
         display: none !important;
     }
@@ -59,4 +62,5 @@ button {
         max-width: 1440px;
     }
 }
+
 
