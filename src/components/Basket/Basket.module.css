@@ -15,6 +15,9 @@
     bottom: 0;
     overflow-y: auto;
 }
+.Basket::-webkit-scrollbar {
+    width: 0;
+}
 
 .Basket_title {
     font-family: 'Roboto';
