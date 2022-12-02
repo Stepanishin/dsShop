@@ -68,7 +68,7 @@ const Basket:FC = () => {
 
     return (
                 <nav id='basket' className={styles.Basket}>
-                    <h2 className={styles.Basket_title}>My Basket</h2>
+                    <h2 className={styles.Basket_title}>My Cart</h2>
                     <button className={styles.closeBasket} id='closeBasket' onClick={showCart} >
                         <img src={close} alt="close" />
                     </button>

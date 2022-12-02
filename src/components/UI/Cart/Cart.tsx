@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { ICard } from '../../../types/ICard';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import { addCardSlice } from '../../../store/reducers/getProductToBasket';
+import toast from 'react-hot-toast';
 
 
 
@@ -19,6 +20,11 @@ const Cart:FC<ICard> = ({ id, name, image, priceUSDC, priceNCTR}) => {
 
     const dispatch = useAppDispatch()
 
+    // Создаём тосты*(алармы)
+    const succes = () => {
+        toast.success('The product has been added to the cart!')
+    };
+
     // a function that determines whether there are goods in the cart
     useEffect(() => {
         const is = cards.filter((card)=> card.id === id )
@@ -27,6 +33,7 @@ const Cart:FC<ICard> = ({ id, name, image, priceUSDC, priceNCTR}) => {
 
     // function to add items to the cart
     const addToBasket = () => {
+        succes()
         cards = [...cards, {
             id: id,
             name: name,
