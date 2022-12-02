@@ -80,7 +80,7 @@ const Basket:FC = () => {
                         cards.map(item => {
                             return (
                                 <div className={styles.Basket_order_item_container} key={item.id}>
-                                    <img className={styles.item_data_image} src={require(`../../assets/img/gift.webp`)} alt="sneakers" width='90px' height='51px' />
+                                    <img className={styles.item_data_image} src={item.image} alt="box" width='90px' height='51px' />
                                     <div className={styles.item_data_container}>
                                         <h3 style={{fontWeight: '600'}}>{item.name}</h3>
                                         <div className={styles.item_data_quantity_container}>

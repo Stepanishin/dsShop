@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { ICard } from '../../types/ICard';
 import styles from './CardItem.module.css'
 import { Link } from 'react-router-dom';
@@ -7,13 +7,14 @@ import Cart from '../UI/Cart/Cart';
 
 
 
-const CardItem:FC<ICard> = ({ id, name, image, priceUSDC, priceNCTR}) => {
 
+const CardItem:FC<ICard> = ({ id, name, image, priceUSDC, priceNCTR}) => {
+    
     return (
         <div className={styles.Card}>
             
                 {
-                    image && <Link to={`${id}`} ><img src={require(`../../assets/img/gift.webp`)} alt='sneakers' width='228px' height='130px' /></Link>
+                    image &&  <Link to={`${id}`} ><img src={image} alt='box' width='228px' height='130px' /></Link>
                 }  
                 <h2 className={styles.Card_name}>{name}</h2>
                 <div className={styles.Card_data_container}>
