@@ -14,6 +14,7 @@ import { getDatabase, ref, update } from "firebase/database";
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { addCardSlice } from '../../store/reducers/getProductToBasket';
 import Loader from '../UI/Loader/Loader';
+import baseUrl from '../../assets/config';
 
 
 const SubmitForm:FC<ISubmitFormProps> = ({totalPrice}) => {
@@ -27,7 +28,9 @@ const SubmitForm:FC<ISubmitFormProps> = ({totalPrice}) => {
         city: '',
         zip: '',
         adress: '',
+        phone: '',
         status: 'In processing',
+        statusPayment: 'checking'
     });
     const connection = new Connection("https://solana-mainnet.g.alchemy.com/v2/IjcuUmymeTy65r4Z0KPaWfm7hsIC5OFK", "confirmed");
     const { publicKey, signTransaction, sendTransaction } = useWallet();
@@ -40,7 +43,7 @@ const SubmitForm:FC<ISubmitFormProps> = ({totalPrice}) => {
 
     useEffect(()=> {
         let sumUSDC = totalPrice.$USDC
-        setResult({...result, ['sumUSDC']: sumUSDC, ['sumNCTR']: totalPrice.$NCTR, ['wallet']: publicKey?.toBase58(), ['order']: cards})
+        setResult({...result, ['sumUSDC']: sumUSDC, ['sumNCTR']: totalPrice.$NCTR, ['wallet']: publicKey?.toBase58(), ['userOrder']: cards})
     }, [totalPrice,publicKey])
 
     let mintNCTRAdress = 'AgnHzGspNu7F3nFM4izuPt5g7m1URjVaTaFNgvqSXcjC'
@@ -59,7 +62,7 @@ const SubmitForm:FC<ISubmitFormProps> = ({totalPrice}) => {
     const smhWrong = () => {
         toast.error('Something went wrong!')
     };
-    const bastetEmpty = () => {
+    const basketEmpty = () => {
         toast.error('Cart is empty!')
     };
 
@@ -74,20 +77,20 @@ const SubmitForm:FC<ISubmitFormProps> = ({totalPrice}) => {
         }
         // Если корзина пустая
         if (cards.length === 0) {
-            bastetEmpty()
+            basketEmpty()
             return
         }
         try {
             ////////////////////////SOLANA///////////////////////////////////////////////////////////////////////////////////////////////////////////////   
-
+            
             if (!publicKey || !signTransaction) throw new WalletNotConnectedError()
-
+            
             loader.style.display = 'flex'
 
             const toPublicKey = new PublicKey(theWallet) //Кошелек, куда пересылать
             const mint1 = new PublicKey(mintNCTRAdress) //Адрес токена ,который нужно переслать
             const mint2 = new PublicKey(mintUSDCAdress) //Адрес токена ,который нужно переслать
-
+            
             const fromTokenAccount1 = await getOrCreateAssociatedTokenAccount(
                 connection,
                 publicKey,
@@ -102,7 +105,7 @@ const SubmitForm:FC<ISubmitFormProps> = ({totalPrice}) => {
                 publicKey,
                 signTransaction
             )
-
+            
             const toTokenAccount1 = await getOrCreateAssociatedTokenAccount(
                 connection,
                 publicKey,
@@ -120,7 +123,6 @@ const SubmitForm:FC<ISubmitFormProps> = ({totalPrice}) => {
 
             let lamportsI = LAMPORTS_PER_SOL*result.sumNCTR!;
             let lamportsII = 1000000*result.sumUSDC!;
-
 
             const transaction = new Transaction().add(
                 createTransferInstruction(
@@ -146,24 +148,34 @@ const SubmitForm:FC<ISubmitFormProps> = ({totalPrice}) => {
             transaction.feePayer = await publicKey
             transaction.recentBlockhash = await blockHash.blockhash
             const signed = await signTransaction(transaction)
+            console.log(signed.signatures)
             await connection.sendRawTransaction(signed.serialize())
             ///////////////////////DATA BASE///////////////////////////////////////////////////////////////////////////////////////////////////////////
             const updateDb = () => {
-                const dbRef = ref(getDatabase());
-                const updates:any = {};
-                let id = Date.now()
-                // Делаем запись в базу данных
-                updates[`/orders/${id}`] = result
+                const token:string = localStorage.getItem('authToken')
+                console.log('tuta')
+                console.log(token)
+                const options = {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                      Authorization: token
+                    },
+                    body: JSON.stringify(result)
+                  };
+                  
+                  fetch(`${baseUrl}/orders`, options)
+                    .then(response => response.json())
+                    .then(response => console.log(response))
+                    .catch(err => console.error(err));
     
                 // Закрытие Лоадера
                 const closeLoader =() => {
                     loader.style.display = 'none'
                 }
-                setTimeout(closeLoader, 1000)
+                setTimeout(closeLoader, 1500)
                 // Сигнал , что всё прошло успешно
                 succes()
-
-                return update(ref(db), updates);
             }
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             updateDb()
@@ -176,7 +188,9 @@ const SubmitForm:FC<ISubmitFormProps> = ({totalPrice}) => {
                 city: '',
                 zip: '',
                 adress: '',
+                phone:'',
                 status: 'In processing',
+                statusPayment: 'checking'
             })
             const newCards = [];
             dispatch(addCard(newCards))
@@ -195,7 +209,6 @@ const SubmitForm:FC<ISubmitFormProps> = ({totalPrice}) => {
 
     const setOrder = (e:any) => {
         e.preventDefault()
-        console.log(result)
         onClick()
     }
 
@@ -225,9 +238,15 @@ const SubmitForm:FC<ISubmitFormProps> = ({totalPrice}) => {
                     </div>
                 </div>
                 <div className={styles.SubmitForm_input_wrapper}>
+                    <label className={styles.title}  htmlFor="phone">Contact Phone*   </label>
+                    <div className={styles.link_block}>
+                        <input required type='tel' name='phone' id='phone' onChange={handleChange} placeholder=" +386 696505644"  value={result.phone}/>
+                    </div>
+                </div>
+                <div className={styles.SubmitForm_input_wrapper}>
                  <label className={styles.title}  htmlFor="mail">Mail*   </label>
                     <div className={styles.link_block}>
-                        <input required type="text" name='mail' id='mail' onChange={handleChange} placeholder=" john_defo@example.com"  value={result.mail}/>
+                        <input required type="email" name='mail' id='mail' onChange={handleChange} placeholder=" john_defo@example.com"  value={result.mail}/>
                     </div>
                 </div>
                 <div className={styles.SubmitForm_input_wrapper}>
