@@ -37,7 +37,6 @@ const Content: FC = memo(() => {
             .then((response) => response.json())
             .then(async (hash) => {
             let message = hash
-            console.log('hash', hash)
             signMessage(new TextEncoder().encode(message)).then((signedMessage:any) => {
                 let hex = Buffer.from(signedMessage).toString('base64')
                 let arr = {wallet: publicKey.toBase58(), signature: hex, message: hash}

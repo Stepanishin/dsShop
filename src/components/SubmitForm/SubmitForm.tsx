@@ -148,13 +148,10 @@ const SubmitForm:FC<ISubmitFormProps> = ({totalPrice}) => {
             transaction.feePayer = await publicKey
             transaction.recentBlockhash = await blockHash.blockhash
             const signed = await signTransaction(transaction)
-            console.log(signed.signatures)
             await connection.sendRawTransaction(signed.serialize())
             ///////////////////////DATA BASE///////////////////////////////////////////////////////////////////////////////////////////////////////////
             const updateDb = () => {
                 const token:string = localStorage.getItem('authToken')
-                console.log('tuta')
-                console.log(token)
                 const options = {
                     method: 'POST',
                     headers: {
