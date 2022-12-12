@@ -1,0 +1,35 @@
+.Profile {
+    min-width: 600px;
+    max-width: 600px;
+    border-left: 1px solid rgba(128, 128, 128, 0.664);
+    /* min-height: calc(100vh + 91px); */
+    display: flex;
+    flex-direction: column;
+    background: #181923;
+    position: fixed;
+    right: -600px;
+    transition: all 1s;
+    z-index: 10;
+    height: 100%;
+    top: 0px;
+    bottom: 0;
+    overflow-y: auto;
+}
+.Profile::-webkit-scrollbar {
+    width: 0;
+}
+
+.Profile_title {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    padding: 40px 40px 0 40px;  
+}
+
+.closeProfile {
+    position: absolute;
+    top: 45px;
+    right: 25px;
+}

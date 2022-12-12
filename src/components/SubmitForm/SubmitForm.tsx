@@ -33,7 +33,7 @@ const SubmitForm:FC<ISubmitFormProps> = ({totalPrice}) => {
         statusPayment: 'checking'
     });
     const connection = new Connection("https://solana-mainnet.g.alchemy.com/v2/IjcuUmymeTy65r4Z0KPaWfm7hsIC5OFK", "confirmed");
-    const { publicKey, signTransaction, sendTransaction } = useWallet();
+    const { publicKey, signTransaction, sendTransaction, signedMessage } = useWallet();
     const db = getDatabase();
     let {cards} = useAppSelector(state => state.addCardSlice)
     const {addCard} = addCardSlice.actions
@@ -148,7 +148,17 @@ const SubmitForm:FC<ISubmitFormProps> = ({totalPrice}) => {
             transaction.feePayer = await publicKey
             transaction.recentBlockhash = await blockHash.blockhash
             const signed = await signTransaction(transaction)
+            // console.log("transaction",transaction)
+            // console.log("signed",signed)
+            // console.log("recentBlockhash",blockHash)
+            // console.log("signed.signatures[0].signature", signed.signatures[0].signature)
+            // console.log("signature", signed.signature)
+            // let hex1 = Buffer.from(signed.signatures[0].signature).toString('base64')
+            // let hex2 = Buffer.from(signed.signatures[0].signature).toString('base64')
+            // console.log("hex1", hex1)
+            // console.log("hex2", hex2)
             await connection.sendRawTransaction(signed.serialize())
+            
             ///////////////////////DATA BASE///////////////////////////////////////////////////////////////////////////////////////////////////////////
             const updateDb = () => {
                 const token:string = localStorage.getItem('authToken')

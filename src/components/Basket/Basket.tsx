@@ -1,8 +1,5 @@
 import React, { FC,useState, useEffect } from 'react';
 import styles from './Basket.module.css'
-import minus from '../../assets/img/minus.svg'
-import plus from '../../assets/img/plus.svg'
-import deleteCardSvg from '../../assets/img/delete.svg'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { addCardSlice } from '../../store/reducers/getProductToBasket';
 import SubmitForm from '../SubmitForm/SubmitForm';
@@ -68,7 +65,7 @@ const Basket:FC = () => {
 
     return (
                 <nav id='basket' className={styles.Basket}>
-                    <h2 className={styles.Basket_title}>My Cart</h2>
+                    <h2 className={styles.Basket_title}>My Basket</h2>
                     <button className={styles.closeBasket} id='closeBasket' onClick={showCart} >
                         <img src={close} alt="close" />
                     </button>

@@ -39,7 +39,8 @@ const Content: FC = memo(() => {
             let message = hash
             signMessage(new TextEncoder().encode(message)).then((signedMessage:any) => {
                 let hex = Buffer.from(signedMessage).toString('base64')
-                let arr = {wallet: publicKey.toBase58(), signature: hex, message: hash}
+                // let arr = {wallet: publicKey.toBase58(), signature: hex, message: hash}
+                let arr = {wallet: publicKey.toBase58(), signature: hex}
                 fetch(`${baseUrl}/users`, {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},

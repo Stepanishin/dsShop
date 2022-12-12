@@ -6,6 +6,7 @@ import profile from './img/profile.svg'
 import './header.css'
 import { useAppSelector } from '../../hooks/redux';
 import { showCart } from '../../helpers/showModalWindow';
+import { showProfile } from '../../helpers/showModalProfile';
 
 
 const Header: FC = () => {
@@ -35,7 +36,7 @@ const Header: FC = () => {
                 </div>
                 <div className="header_btns_container">
                     <div className="header_btns_container">
-                        {/* <img id='profile' className="header_profile" src={profile} alt="Cart" width='24px' height='21px' /> */}
+                        <img onClick={showProfile} className="header_profile" src={profile} alt="Cart" width='24px' height='21px' />
                         <img onClick={showCart} id='basketImg' className="header_cart" src={cart} alt="Cart" width='24px' height='21px' />
                         <p id='cartQuantity' className="header_cart_quantity">{quantity}</p>
                     </div>
