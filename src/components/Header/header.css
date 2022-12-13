@@ -83,7 +83,7 @@
 }
 @media screen and (max-width: 500px) {
     .header_btns_container {
-        width: 180px;
+        /* width: 180px; */
         gap: 10px;
     }
     .header_cart_quantity {
