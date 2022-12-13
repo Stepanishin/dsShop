@@ -4,15 +4,23 @@ import Logo from '../UI/Logo/Logo';
 import cart from './img/Cart.svg'
 import profile from './img/profile.svg'
 import './header.css'
-import { useAppSelector } from '../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { showCart } from '../../helpers/showModalWindow';
-import { showProfile } from '../../helpers/showModalProfile';
+import baseUrl from '../../assets/config';
+import { getOrdersSlice } from '../../store/reducers/getProductFromOrderDB';
+import { useWallet } from '@solana/wallet-adapter-react';
 
 
 const Header: FC = () => {
 
+    const { publicKey } = useWallet();
+
     let [ quantity, setQuantity ] = useState('')
     const {cards} = useAppSelector(state => state.addCardSlice)
+
+    // let {cards} = useAppSelector(state => state.getOrdersSlice)
+    const {getOrders} = getOrdersSlice.actions
+    const dispatch = useAppDispatch()
 
     // Changing the number of items on the cart icon
     useEffect(() => {
@@ -25,6 +33,35 @@ const Header: FC = () => {
         }
     }, [cards])
 
+    // Функция получения открытых ордеров пользователя
+    const useShowProfile = () => {  
+        
+            let profile = document.getElementById('profile')!
+            let modalAll = document.getElementById('modalAllProfile')!
+            let cardList = document.getElementById('CardList')!
+            profile.classList.toggle('showProfile')
+            modalAll.classList.toggle('showModal')
+            cardList.classList.toggle('display_none_cardList')
+
+            if (profile.classList.value.includes('showProfile') && publicKey) {
+                const token:string = localStorage.getItem('authToken')
+                const options = {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: token
+                      },
+                };
+                fetch(`${baseUrl}/user/`, options)
+                  .then(response => response.json())
+                  .then((response) => {
+                    console.log(response)
+                    dispatch(getOrders(response.userOrders))
+                  })
+                  .catch(err => console.error(err));
+            }
+    }
+
     return (
         <header className='Header'>
             <div className="container Header_container">
@@ -36,7 +73,7 @@ const Header: FC = () => {
                 </div>
                 <div className="header_btns_container">
                     <div className="header_btns_container">
-                        <img onClick={showProfile} className="header_profile" src={profile} alt="Cart" width='24px' height='21px' />
+                        <img onClick={useShowProfile} className="header_profile" src={profile} alt="Cart" width='24px' height='21px' />
                         <img onClick={showCart} id='basketImg' className="header_cart" src={cart} alt="Cart" width='24px' height='21px' />
                         <p id='cartQuantity' className="header_cart_quantity">{quantity}</p>
                     </div>

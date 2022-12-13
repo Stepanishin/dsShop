@@ -2,7 +2,6 @@
     min-width: 600px;
     max-width: 600px;
     border-left: 1px solid rgba(128, 128, 128, 0.664);
-    /* min-height: calc(100vh + 91px); */
     display: flex;
     flex-direction: column;
     background: #181923;
@@ -29,7 +28,17 @@
 }
 
 .closeProfile {
-    position: absolute;
+    position: absolute; 
     top: 45px;
     right: 25px;
+}
+
+@media screen and (max-width: 769px) {
+    .Profile {
+        min-width: 100vw;
+        max-width: 100vw;
+        border-left: none;
+        right: -100vw;
+        transition: all 1s;
+    }
 }

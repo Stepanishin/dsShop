@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Basket from '../../components/Basket/Basket';
 import CardsList from '../../components/CardsList/CardsList';
 import Profile from '../../components/Profile/Profile';
-import { showProfile } from '../../helpers/showModalProfile';
+import { useShowProfile } from '../../helpers/showModalProfile';
 import { showCart } from '../../helpers/showModalWindow';
 import { MainRoutes } from '../../router';
 import styles from './ShopPage.module.css'
@@ -16,7 +16,7 @@ const ShopPage:FC = () => {
                 <div className={styles.ShopPage_bg}></div>
             </div>
             <div onClick={showCart} id='modalAll' className={styles.modal}></div>
-            {/* <div onClick={showProfile} id='modalAll' className={styles.modal}></div> */}
+            <div onClick={useShowProfile} id='modalAllProfile' className={styles.modal}></div>
             <Routes>
                     {
                     MainRoutes.map(route => 

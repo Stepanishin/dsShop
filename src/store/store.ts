@@ -1,8 +1,10 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import addCardSlice from './reducers/getProductToBasket'
+import getOrdersSlice from './reducers/getProductFromOrderDB'
 
 const rootReducer = combineReducers({
     addCardSlice,
+    getOrdersSlice
 })
 
 export const setupStore = () => {

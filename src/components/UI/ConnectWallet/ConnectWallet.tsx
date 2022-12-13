@@ -29,6 +29,9 @@ const Content: FC = memo(() => {
     if (publicKey) {
         let arr = {wallet: publicKey.toBase58()}
         localStorage.setItem('authToken', null);
+        if (localStorage.getItem('userData')) {
+            localStorage.setItem('userData', null);
+        }
         fetch(`${baseUrl}/hash/`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -39,7 +42,6 @@ const Content: FC = memo(() => {
             let message = hash
             signMessage(new TextEncoder().encode(message)).then((signedMessage:any) => {
                 let hex = Buffer.from(signedMessage).toString('base64')
-                // let arr = {wallet: publicKey.toBase58(), signature: hex, message: hash}
                 let arr = {wallet: publicKey.toBase58(), signature: hex}
                 fetch(`${baseUrl}/users`, {
                     method: 'POST',
@@ -48,7 +50,9 @@ const Content: FC = memo(() => {
                     })
                     .then((response) => response.json())
                     .then((data) => {
+                        console.log(data)
                         localStorage.setItem('authToken', data.token);
+                        // localStorage.setItem('userData', JSON.stringify(data?.user?.userOrders));
                     })
                     .catch((error) => {
                         console.error('Error:', error);

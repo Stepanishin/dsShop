@@ -148,15 +148,6 @@ const SubmitForm:FC<ISubmitFormProps> = ({totalPrice}) => {
             transaction.feePayer = await publicKey
             transaction.recentBlockhash = await blockHash.blockhash
             const signed = await signTransaction(transaction)
-            // console.log("transaction",transaction)
-            // console.log("signed",signed)
-            // console.log("recentBlockhash",blockHash)
-            // console.log("signed.signatures[0].signature", signed.signatures[0].signature)
-            // console.log("signature", signed.signature)
-            // let hex1 = Buffer.from(signed.signatures[0].signature).toString('base64')
-            // let hex2 = Buffer.from(signed.signatures[0].signature).toString('base64')
-            // console.log("hex1", hex1)
-            // console.log("hex2", hex2)
             await connection.sendRawTransaction(signed.serialize())
             
             ///////////////////////DATA BASE///////////////////////////////////////////////////////////////////////////////////////////////////////////
