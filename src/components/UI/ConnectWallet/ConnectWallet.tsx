@@ -50,9 +50,7 @@ const Content: FC = memo(() => {
                     })
                     .then((response) => response.json())
                     .then((data) => {
-                        console.log(data)
                         localStorage.setItem('authToken', data.token);
-                        // localStorage.setItem('userData', JSON.stringify(data?.user?.userOrders));
                     })
                     .catch((error) => {
                         console.error('Error:', error);

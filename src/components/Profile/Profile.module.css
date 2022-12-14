@@ -33,6 +33,65 @@
     right: 25px;
 }
 
+.Profile_info_wrapper {
+    border-top: 1px solid rgba(128, 128, 128, 0.664);
+    margin-top: 20px;
+    padding: 20px 40px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.Profile_avatar_container {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid rgba(245,247,250,.1);
+    border-radius: 500px;
+    margin-right: 24px;
+}
+
+.Profile_avatar_container img {
+    width: 160px;
+    height: 160px;
+    border-radius: 500px;
+}
+
+.Profile_info_wallet {
+    font-family: TT Supermolot Neue;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 121%;
+    display: flex;
+    align-items: center;
+    color: #f5f7fa99;
+}
+
+.Profile_wrapper {
+    border-top: 1px solid rgba(128, 128, 128, 0.664);
+    margin-top: 20px;
+    padding: 20px 40px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+}
+
+.Profile_order_item_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Profile_order_item_container p {
+    color: #f5f7fa99;
+}
+
 @media screen and (max-width: 769px) {
     .Profile {
         min-width: 100vw;
@@ -40,5 +99,14 @@
         border-left: none;
         right: -100vw;
         transition: all 1s;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .Profile_wrapper {
+        padding: 15px 10px 15px 30px;
+    }
+    .Profile_order_item_container {
+        gap: 20px;
     }
 }

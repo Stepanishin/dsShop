@@ -55,7 +55,6 @@ const Header: FC = () => {
                 fetch(`${baseUrl}/user/`, options)
                   .then(response => response.json())
                   .then((response) => {
-                    console.log(response)
                     dispatch(getOrders(response.userOrders))
                   })
                   .catch(err => console.error(err));

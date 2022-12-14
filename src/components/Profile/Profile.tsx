@@ -1,10 +1,10 @@
-import React, { FC,useState, useEffect } from 'react';
+import React, { FC } from 'react';
 import styles from './Profile.module.css'
 import close from '../../assets/img/delete.svg'
 import { useShowProfile } from '../../helpers/showModalProfile';
 import { useWallet } from '@solana/wallet-adapter-react';
-import baseUrl from '../../assets/config';
 import { useAppSelector } from '../../hooks/redux';
+import avatar from './img/avatar.gif'
 
 
 const Profile:FC = () => {
@@ -21,19 +21,47 @@ const Profile:FC = () => {
                 <button className={styles.closeProfile} id='closeProfile' onClick={useShowProfile} >
                     <img src={close} alt="close" />
                 </button>
-                {/* <button onClick={getData} >Get data</button> */}
+                <div  className={styles.Profile_info_wrapper}>
+                    <div className={styles.Profile_avatar_container}>
+                        <img src={avatar} alt="Avatar" />
+                    </div>
+                    <p className={styles.Profile_info_wallet}>
+                        {publicKey && publicKey.toString('base58').slice(0, 8) +"..."+ publicKey.toString('base58').slice(publicKey.toString('base58').length - 8, publicKey.toString('base58').length)}
+                    </p>
+
+                </div>
                 {
-                    userData
-                    ?
+                    <h2 className={styles.Profile_title}>Orders:</h2>
+                }
+
+                {
+                    userData && userData.length > 0 && userData !== null && userData !== undefined
+                    &&
                     userData.map((order, index) => {
                         return (
-                            <div key={index}>
-                                <p>{order.name}</p>  
-                            </div>
+                            <div key={index}  className={styles.Profile_wrapper}>
+                                    {
+                                        order.userOrder.map((item, index) => {
+                                            return (
+                                                <div className={styles.Profile_order_item_container} key={index}>
+                                                    <p>{item.name}</p>
+                                                    <img width={45} height={35} src={item.image} alt="" />
+                                                    <p>Quantity : {item.quantity}</p>
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                    <p>Total Price: $USDC {order.sumUSDC} + $NCTR {order.sumNCTR}</p>
+                                    <p>Status: {order.status}</p>
+                            </div>  
                         )
                     })
-                    :
-                    <p>You must log in and subscribe message from your wallet</p>
+                }
+                {
+                    userData && userData.length === 0 && userData !== null && userData !== undefined && <div className={styles.Profile_wrapper}>You have no open orders</div>
+                }
+                {
+                    userData === null && <div className={styles.Profile_wrapper}>You must log in and subscribe message from your wallet</div>
                 }
                     
             </nav>
