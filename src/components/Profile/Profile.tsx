@@ -26,7 +26,11 @@ const Profile:FC = () => {
                         <img src={avatar} alt="Avatar" />
                     </div>
                     <p className={styles.Profile_info_wallet}>
-                        {publicKey && publicKey.toString('base58').slice(0, 8) +"..."+ publicKey.toString('base58').slice(publicKey.toString('base58').length - 8, publicKey.toString('base58').length)}
+                        {
+                            publicKey
+                            ? publicKey.toString('base58').slice(0, 8) +"..."+ publicKey.toString('base58').slice(publicKey.toString('base58').length - 8, publicKey.toString('base58').length)
+                            : "You have not connected your wallet"
+                        }
                     </p>
 
                 </div>

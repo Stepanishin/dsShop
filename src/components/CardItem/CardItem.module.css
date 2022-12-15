@@ -1,29 +1,28 @@
 .Card {
-    width: 250px;
-    height: 314px;
     border-radius: 3px;
-    padding: 29px 11px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    background: #181923;
+    background: #22242B;
     border-radius: 10px;
+    justify-content: space-between;
+    align-items: center;
+    height: 68px;
+}
+
+.Card_img {
+    width: 50px;
 }
 
 .Card_name {
-    margin-top: 41px;
     width: 165px;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
     line-height: 16px;
-    color: white;
+    color: #979797;
 }
 
-.Card_data_container {
-    margin-top: 13px;
+/* .Card_data_container {
     display: flex;
     gap: 15px;
     justify-content: center;
@@ -45,4 +44,4 @@
 }
 .bigLetter {
     font-weight: 600;
-}
+} */

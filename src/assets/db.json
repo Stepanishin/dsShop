@@ -6,7 +6,8 @@
         "image": "https://i.ibb.co/BwZPkyh/box3.png",
         "priceUSDC": 1,
         "priceNCTR": 2,
-        "modelNumber": "MT91547"
+        "modelNumber": "MT91547",
+        "category": "gift"
       },
       {
         "id": 2,
@@ -14,35 +15,47 @@
         "image": "https://i.ibb.co/BwZPkyh/box3.png",
         "priceUSDC": 1,
         "priceNCTR": 2,
-        "modelNumber": "MT91548"
+        "modelNumber": "MT91548",
+        "category": "gift"
       },{
         "id": 3,
         "name": "Gift Set Hoodie L size + T-shirt L size",
         "image": "https://i.ibb.co/BwZPkyh/box3.png",
         "priceUSDC": 1,
         "priceNCTR": 2,
-        "modelNumber": "MT91549"
+        "modelNumber": "MT91549",
+        "category": "gift"
       },{
         "id": 4,
         "name": "Gift Set Hoodie XL size + T-shirt XL size",
         "image": "https://i.ibb.co/BwZPkyh/box3.png",
         "priceUSDC": 1,
         "priceNCTR": 2,
-        "modelNumber": "MT91550"
+        "modelNumber": "MT91550",
+        "category": "gift"
       },{
         "id": 5,
         "name": "Gift Set Hoodie XXL size + T-shirt XXL size",
         "image": "https://i.ibb.co/BwZPkyh/box3.png",
         "priceUSDC": 1,
         "priceNCTR": 2,
-        "modelNumber": "MT91551"
+        "modelNumber": "MT91551",
+        "category": "gift"
       },{
         "id": 6,
         "name": "Super big gift pack",
         "image": "https://i.ibb.co/BwZPkyh/box3.png",
         "priceUSDC": 2,
         "priceNCTR": 4,
-        "modelNumber": "MT91552"
-      }
+        "modelNumber": "MT91552",
+        "category": "gift"
+      },{
+        "id": 7,
+        "name": "NFT 1/1",
+        "image": "https://i.ibb.co/BwZPkyh/box3.png",
+        "priceUSDC": 2,
+        "priceNCTR": 4,
+        "category": "nft"
+      }    
     ]
   }

@@ -1,0 +1,32 @@
+.nav {
+    height: 36px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    gap: 52px;
+}
+
+.link {
+    font-family: TT Supermolot Neue;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 121%;
+    color: #f5f7fa;
+    transition: all .15s ease-in;
+    text-decoration: none;
+    cursor: pointer;
+}
+.link:active {
+    color: #ffcc15;
+}
+
+@media screen and (max-width > 940px) {
+    .nav {
+        gap: 16px;
+    }
+    .link {
+        font-size: 14px;
+    }
+}

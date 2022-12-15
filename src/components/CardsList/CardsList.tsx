@@ -8,20 +8,25 @@ const CardsList:FC = () => {
 
     return (
             <section id='CardList' className={styles.CardsList}>
-                {
-                    db.products.map((card:ICard) => {
-                        return (
-                            <CardItem 
-                                key={card.id}
-                                id={card.id}
-                                name={card.name}
-                                image={card.image}
-                                priceUSDC={card.priceUSDC}
-                                priceNCTR={card.priceNCTR}
-                            />
-                        )
-                    })
-                }
+                <div className={styles.CardsList_nav}>
+                    {
+                        db.products.map((card:ICard) => {
+                            if (card.category === 'gift') {
+                                return (
+                                    <CardItem 
+                                        key={card.id}
+                                        id={card.id}
+                                        name={card.name}
+                                        image={card.image}
+                                        priceUSDC={card.priceUSDC}
+                                        priceNCTR={card.priceNCTR}
+                                    />
+                                )
+                            }
+                        })
+                    }
+                </div>
+
             </section>
     );
 };
