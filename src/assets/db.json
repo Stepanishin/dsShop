@@ -7,7 +7,7 @@
         "priceUSDC": 1,
         "priceNCTR": 2,
         "modelNumber": "MT91547",
-        "category": "gift"
+        "category": "clothes"
       },
       {
         "id": 2,
@@ -16,7 +16,7 @@
         "priceUSDC": 1,
         "priceNCTR": 2,
         "modelNumber": "MT91548",
-        "category": "gift"
+        "category": "clothes"
       },{
         "id": 3,
         "name": "Gift Set Hoodie L size + T-shirt L size",
@@ -24,7 +24,7 @@
         "priceUSDC": 1,
         "priceNCTR": 2,
         "modelNumber": "MT91549",
-        "category": "gift"
+        "category": "clothes"
       },{
         "id": 4,
         "name": "Gift Set Hoodie XL size + T-shirt XL size",
@@ -32,7 +32,7 @@
         "priceUSDC": 1,
         "priceNCTR": 2,
         "modelNumber": "MT91550",
-        "category": "gift"
+        "category": "clothes"
       },{
         "id": 5,
         "name": "Gift Set Hoodie XXL size + T-shirt XXL size",
@@ -40,7 +40,7 @@
         "priceUSDC": 1,
         "priceNCTR": 2,
         "modelNumber": "MT91551",
-        "category": "gift"
+        "category": "clothes"
       },{
         "id": 6,
         "name": "Super big gift pack",
@@ -48,11 +48,11 @@
         "priceUSDC": 2,
         "priceNCTR": 4,
         "modelNumber": "MT91552",
-        "category": "gift"
+        "category": "clothes"
       },{
         "id": 7,
         "name": "NFT 1/1",
-        "image": "https://i.ibb.co/BwZPkyh/box3.png",
+        "image": "https://i.ibb.co/kMFHKpH/lilu.jpg",
         "priceUSDC": 2,
         "priceNCTR": 4,
         "category": "nft"

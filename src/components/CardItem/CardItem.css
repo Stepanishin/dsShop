@@ -1,0 +1,12 @@
+.Card_name {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    color: #979797;
+}
+.Card_name_active {
+    color: #FFCC15;
+    font-weight: 700;
+}

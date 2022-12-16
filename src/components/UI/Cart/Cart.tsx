@@ -13,6 +13,8 @@ import toast from 'react-hot-toast';
 
 const Cart:FC<ICard> = ({ id, name, image, priceUSDC, priceNCTR}) => {
 
+    let {card} = useAppSelector(state => state.getCurrentCardSlice)
+
     const [isProductInBasket, setIsProductInBasket] = useState(false)
 
     let {cards} = useAppSelector(state => state.addCardSlice)
@@ -29,7 +31,7 @@ const Cart:FC<ICard> = ({ id, name, image, priceUSDC, priceNCTR}) => {
     useEffect(() => {
         const is = cards.filter((card)=> card.id === id )
         is.length > 0 ? setIsProductInBasket(true) :  setIsProductInBasket(false)
-    }, [cards])
+    }, [cards, card])
 
     // function to add items to the cart
     const addToBasket = () => {
@@ -50,7 +52,7 @@ const Cart:FC<ICard> = ({ id, name, image, priceUSDC, priceNCTR}) => {
             {
                 isProductInBasket
                 ?
-                <img className={styles.Cart_data_button_complete} src={added} alt="added" />
+                <button className={styles.Cart_data_button_added}><img className={styles.Cart_data_button_complete} src={added} alt="added" /></button>
                 :
                 <button onClick={addToBasket} className={styles.Cart_data_button_add}><img src={cart} alt="Cart" /></button>
             }      

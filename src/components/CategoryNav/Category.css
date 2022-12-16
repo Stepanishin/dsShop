@@ -1,0 +1,56 @@
+.category_link {
+    font-family: TT Supermolot Neue;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 250%;
+    color: #f5f7fa;
+    transition: all .15s ease-in;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.category_link_active {
+    color: #FFCC15;
+}
+
+/* Switchanimation */
+.switchAnimation {
+    position: relative;
+    -webkit-animation: switchwrap 0.1s linear;
+    animation: switchwrap 0.1s linear ;
+}
+@keyframes switchwrap {
+    0% {
+        top: 0px;
+    }
+    30% {
+        top: 2px;
+    }
+    50% {
+        top: 4px;
+    }
+    80% {
+        top: 2px;
+    }
+    100% {
+        top: 4px;
+    }
+}
+@-webkit-keyframes switchwrap {
+    0% {
+        top: 0px;
+    }
+    30% {
+        top: 2px;
+    }
+    50% {
+        top: 4px;
+    }
+    80% {
+        top: 2px;
+    }
+    100% {
+        top: 4px;
+    }
+}

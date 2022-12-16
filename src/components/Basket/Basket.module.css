@@ -2,7 +2,6 @@
     min-width: 600px;
     max-width: 600px;
     border-left: 1px solid rgba(128, 128, 128, 0.664);
-    /* min-height: calc(100vh + 91px); */
     display: flex;
     flex-direction: column;
     background: #181923;
@@ -49,6 +48,7 @@
 
 .item_data_image {
     align-self: center;
+    width: 50px;
 }
 
 .item_data_container {

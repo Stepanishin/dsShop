@@ -1,0 +1,94 @@
+.CardsList {
+    position: relative;
+    z-index: 0;
+    max-width: 1440px;
+    margin: 0 0;
+}
+
+.CardsList_nav {
+    max-width: 1040px;
+    border-bottom: 1px solid #22242B;
+    padding: 12px 5px 10px 5px;
+}
+.CardsList_nav::-webkit-scrollbar {
+    width: 0;
+}
+.CurrentCard {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+}
+.CurrentCard_imgName_wrap {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 100px;
+    border-bottom: 1px solid #22242B;
+    padding: 30px 0px;
+}
+.CurrentCard_image_container {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid rgba(245,247,250,.1);
+    border-radius: 30px;
+    margin-right: 24px;
+}
+.CurrentCard_image {
+    width: 160px;
+    height: 160px;
+    border-radius: 30px
+}
+.CurrentCard_pricebtn_wrap {
+    padding: 25px 0px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    border-bottom: 1px solid #22242B;
+}
+.Card_data_price {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: white;
+}
+
+.smallLetter {
+    font-size: 80%;
+    font-weight: 600;
+}
+.bigLetter {
+    font-weight: 600;
+} 
+@media screen and (max-width: 1300px) {
+    .CardsList {
+
+    }
+}
+
+@media screen and (max-width: 901px) {
+    .CardsList {
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .CardsList {
+
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .CardsList {
+
+    }
+}

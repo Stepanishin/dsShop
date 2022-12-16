@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Basket from '../../components/Basket/Basket';
-import CardsList from '../../components/CardsList/CardsList';
+import CardsList from '../../components/ClothesCardsList/ClothesCardsList';
 import CategoryNav from '../../components/CategoryNav/CategoryNav';
 import Profile from '../../components/Profile/Profile';
 import { useShowProfile } from '../../helpers/showModalProfile';
@@ -20,7 +20,7 @@ const ShopPage:FC = () => {
             <div onClick={useShowProfile} id='modalAllProfile' className={styles.modal}></div>
             <div className={styles.ShopPage_wrapper}>
                 <CategoryNav />
-                <div  className={styles.ShopPage_container}>
+                <div  className={styles.ShopPage_container}  id="shopPage" >
                     <Routes>
                             {
                             MainRoutes.map(route => 

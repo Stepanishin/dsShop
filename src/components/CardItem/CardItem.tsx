@@ -1,34 +1,50 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { getCurrentCardSlice } from '../../store/reducers/getCurrentCart';
 import { ICard } from '../../types/ICard';
 import styles from './CardItem.module.css'
-import { Link } from 'react-router-dom';
-import Cart from '../UI/Cart/Cart';
-
-
+import db from '../../assets/db.json'
+import './CardItem.css'
 
 
 
 const CardItem:FC<ICard> = ({ id, name, image, priceUSDC, priceNCTR}) => {
+
+    let {card} = useAppSelector(state => state.getCurrentCardSlice)
+    const {getCurrentCard} = getCurrentCardSlice.actions
+    const dispatch = useAppDispatch()
+
+
+
+    const chooseCurrenCard = (e:any) => {
+        e.stopPropagation()
+        let card = db.products.filter((el:any) => el.id == e.target.id)
+        dispatch(getCurrentCard(card[0]))
+    }
+
     
     return (
-        <Link to={`${id}`} >
-            <div className={styles.Card}>
-                
+            <div className={styles.Card}   
+  
+            >
+                <div  
+                className={styles.Card_cover} 
+                id={id.toString()}                                      
+                onClick = {chooseCurrenCard}>
+                </div>
                 {
-                    image && <img src={image} alt='box'  className={styles.Card_img} />
-                }  
-                <h2 className={styles.Card_name}>{name}</h2>
-                {/* <div className={styles.Card_data_container}>
-                    <Cart id={id} name={name} image={image} priceUSDC={priceUSDC} priceNCTR={priceNCTR} />
-                    <p className={styles.Card_data_price}>
-                        <span className={styles.smallLetter}>$USDC</span> <span className={styles.bigLetter}>{priceUSDC?.toLocaleString('ru')}</span> +
-                        <span className={styles.smallLetter}>$NCTR</span> <span className={styles.bigLetter}>{priceNCTR?.toLocaleString('ru')}</span>
-                    </p>
-                </div> */}
-            
-            </div>
-        </Link>
+                    image && <img src={image} alt='box'  className={styles.Card_img}  />
+                } 
+                {
 
+                }
+                <h2 
+                    id={id.toString() + 'title'} 
+                    className={card.id == (id.toString() + 'title')[0] ? "Card_name_active" : "Card_name"}
+                    >
+                        {name}
+                </h2> 
+            </div>     
     );
 };
 
