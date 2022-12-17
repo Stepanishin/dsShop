@@ -48,7 +48,7 @@ const Cart:FC<ICard> = ({ id, name, image, priceUSDC, priceNCTR}) => {
     }
 
     return (
-        <>              
+        <div className={styles.Cart_container}>    
             {
                 isProductInBasket
                 ?
@@ -56,7 +56,7 @@ const Cart:FC<ICard> = ({ id, name, image, priceUSDC, priceNCTR}) => {
                 :
                 <button onClick={addToBasket} className={styles.Cart_data_button_add}><img src={cart} alt="Cart" /></button>
             }      
-        </>
+        </div>
     );
 };
 

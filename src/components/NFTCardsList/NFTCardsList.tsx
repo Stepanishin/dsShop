@@ -65,8 +65,9 @@ const NFTCardsList:FC = () => {
                             <span className={styles.smallLetter}>$USDC</span> <span className={styles.bigLetter}>{card.priceUSDC.toLocaleString('ru')}</span> +
                             <span className={styles.smallLetter}>$NCTR</span> <span className={styles.bigLetter}>{card.priceNCTR.toLocaleString('ru')}</span>
                         </p>
+                        <a className={styles.ray_link} href="https://raydium.io/swap?inputCurrency=sol&outputCurrency=AgnHzGspNu7F3nFM4izuPt5g7m1URjVaTaFNgvqSXcjC&fixed=in" target="_blank" rel="noreferrer">Swap $NCTR on Raydium</a>          
                     </div>
-                    <div className={styles.CurrentCard_pricebtn_wrap}>
+                    <div className={styles.CurrentCard_btn_wrap}>
                         <Cart id={card.id} name={card.name} image={card.image} priceUSDC={card.priceUSDC} priceNCTR={card.priceNCTR} />
                         
                     </div>

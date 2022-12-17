@@ -4,7 +4,6 @@ import Basket from '../../components/Basket/Basket';
 import CardsList from '../../components/ClothesCardsList/ClothesCardsList';
 import CategoryNav from '../../components/CategoryNav/CategoryNav';
 import Profile from '../../components/Profile/Profile';
-import { useShowProfile } from '../../helpers/showModalProfile';
 import { showCart } from '../../helpers/showModalWindow';
 import { MainRoutes } from '../../router';
 import styles from './ShopPage.module.css'
@@ -17,7 +16,7 @@ const ShopPage:FC = () => {
                 <div className={styles.ShopPage_bg}></div>
             </div>
             <div onClick={showCart} id='modalAll' className={styles.modal}></div>
-            <div onClick={useShowProfile} id='modalAllProfile' className={styles.modal}></div>
+            {/* <div onClick={useShowProfile} id='modalAllProfile' className={styles.modal}></div> */}
             <div className={styles.ShopPage_wrapper}>
                 <CategoryNav />
                 <div  className={styles.ShopPage_container}  id="shopPage" >
@@ -35,7 +34,6 @@ const ShopPage:FC = () => {
                 </div>
             </div>
             <Basket />
-            <Profile />
         </main>
     );
 };

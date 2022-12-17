@@ -10,6 +10,8 @@ import { WalletProvider } from '@solana/wallet-adapter-react';
 import baseUrl from '../../../assets/config';
 import bs58 from 'bs58'
 import nacl from 'tweetnacl'
+import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
+import { getOrdersSlice } from '../../../store/reducers/getProductFromOrderDB';
 
 require('@solana/wallet-adapter-react-ui/styles.css');
 
@@ -24,6 +26,9 @@ export default ConnectWallet;
 const Content: FC = memo(() => {
 
     const { publicKey, signMessage } = useWallet();
+
+    const {getOrders} = getOrdersSlice.actions
+    const dispatch = useAppDispatch()
 
     // Получаем сообщение, подписываем в кошельке, затем записываем пользователя в базу и получает токен
     if (publicKey) {
@@ -51,6 +56,21 @@ const Content: FC = memo(() => {
                     .then((response) => response.json())
                     .then((data) => {
                         localStorage.setItem('authToken', data.token);
+                        // Получаем ордера пользователя
+                        const token:string = localStorage.getItem('authToken')
+                        const options = {
+                            method: 'GET',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                Authorization: token
+                              },
+                        };
+                        fetch(`${baseUrl}/user/`, options)
+                          .then(response => response.json())
+                          .then((response) => {
+                            dispatch(getOrders(response.userOrders))
+                          })
+                          .catch(err => console.error(err));
                     })
                     .catch((error) => {
                         console.error('Error:', error);

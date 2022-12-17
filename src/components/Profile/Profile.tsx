@@ -1,10 +1,11 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import styles from './Profile.module.css'
 import close from '../../assets/img/delete.svg'
-import { useShowProfile } from '../../helpers/showModalProfile';
 import { useWallet } from '@solana/wallet-adapter-react';
-import { useAppSelector } from '../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import avatar from './img/avatar.gif'
+import baseUrl from '../../assets/config';
+import { getOrdersSlice } from '../../store/reducers/getProductFromOrderDB';
 
 
 const Profile:FC = () => {
@@ -12,18 +13,47 @@ const Profile:FC = () => {
     const { publicKey } = useWallet();
 
     let {orders} = useAppSelector(state => state.getOrdersSlice)
+    const {getOrders} = getOrdersSlice.actions
+    const dispatch = useAppDispatch()
 
-    const userData = JSON.parse(localStorage.getItem('userData'))
+    let userData:any
+
+    let authToken = JSON.parse(localStorage.getItem('userData'))
+
+    useEffect(() => {
+        showProfile()
+    }, [])
+
+    // Функция получения открытых ордеров пользователя
+    const showProfile = () => {    
+        if (publicKey) {
+            const token:string = localStorage.getItem('authToken')
+            const options = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: token
+                  },
+            };
+            fetch(`${baseUrl}/user/`, options)
+              .then(response => response.json())
+              .then((response) => {
+                dispatch(getOrders(response.userOrders))
+              })
+              .catch(err => console.error(err));
+        }
+    }
+    
 
     return (
             <nav id='profile' className={styles.Profile}>
-                <h2 className={styles.Profile_title}>My Profile</h2>
-                <button className={styles.closeProfile} id='closeProfile' onClick={useShowProfile} >
-                    <img src={close} alt="close" />
-                </button>
+                <div className={styles.Profile_title_container}>
+                    <h2 className={styles.Profile_title}>Profile</h2>
+                </div>
+
                 <div  className={styles.Profile_info_wrapper}>
                     <div className={styles.Profile_avatar_container}>
-                        <img src={avatar} alt="Avatar" />
+                        <img className={styles.Profile_avatar} src={avatar} alt="Avatar" />
                     </div>
                     <p className={styles.Profile_info_wallet}>
                         {
@@ -32,16 +62,17 @@ const Profile:FC = () => {
                             : "You have not connected your wallet"
                         }
                     </p>
-
                 </div>
-                {
+
+                {   
+                <div className={styles.Profile_title_container}>
                     <h2 className={styles.Profile_title}>Orders:</h2>
+                </div>
                 }
 
                 {
-                    userData && userData.length > 0 && userData !== null && userData !== undefined
-                    &&
-                    userData.map((order, index) => {
+                    orders &&
+                    orders.map((order, index) => {
                         return (
                             <div key={index}  className={styles.Profile_wrapper}>
                                     {
@@ -56,16 +87,16 @@ const Profile:FC = () => {
                                         })
                                     }
                                     <p>Total Price: $USDC {order.sumUSDC} + $NCTR {order.sumNCTR}</p>
-                                    <p>Status: {order.status}</p>
+                                    <p>Status: <span style={{color:'#FFCC15'}} >{order.status}</span></p>
                             </div>  
                         )
                     })
                 }
                 {
-                    userData && userData.length === 0 && userData !== null && userData !== undefined && <div className={styles.Profile_wrapper}>You have no open orders</div>
+                    orders && orders.length === 0 && orders !== null && orders !== undefined && publicKey && <div className={styles.Profile_wrapper}>You have no open orders</div>
                 }
                 {
-                    userData === null && <div className={styles.Profile_wrapper}>You must log in and subscribe message from your wallet</div>
+                    !publicKey && <div className={styles.Profile_wrapper}>You must log in and subscribe message from your wallet</div>
                 }
                     
             </nav>

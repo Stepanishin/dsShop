@@ -57,7 +57,7 @@
 
 .SubmitForm_button {
     margin-top: 30px;
-    background-color: #4f46e5;
+    background-color: #FFCC15;
     border: none;
     border-radius: 9px;
     color: #fff;
@@ -69,7 +69,7 @@
     font-weight: 600;
 }
 .SubmitForm_button:hover {
-    background-color: #4338ca;
+    background-color: #cda100;
 }
 
 .title {

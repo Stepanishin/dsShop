@@ -35,10 +35,11 @@
 .CurrentCard_pricebtn_wrap {
     padding: 25px 0px;
     display: flex;
+    flex-direction: column;
     width: 100%;
     align-items: center;
     justify-content: center;
-    gap: 50px;
+    gap: 10px;
     border-bottom: 1px solid #22242B;
 }
 .Card_data_price {
@@ -50,6 +51,16 @@
     color: white;
 }
 
+.CurrentCard_btn_wrap {
+    padding: 25px 0px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
 .smallLetter {
     font-size: 80%;
     font-weight: 600;
@@ -57,6 +68,13 @@
 .bigLetter {
     font-weight: 600;
 } 
+
+
+.ray_link {
+    color: #ffcc15;
+    text-decoration: none;
+    font-size: 12px;
+}
 @media screen and (max-width: 1300px) {
     .CardsList {
 
@@ -64,8 +82,12 @@
 }
 
 @media screen and (max-width: 901px) {
-    .CardsList {
-        margin: 0 auto;
+    .CurrentCard_imgName_wrap {
+        gap: 20px;
+    }
+    .CurrentCard_image {
+        width: 100px;
+        border-radius: 20px
     }
 }
 

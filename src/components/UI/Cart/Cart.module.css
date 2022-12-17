@@ -1,3 +1,9 @@
+.Cart_container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .Cart_data_button_add {
     width: 131px;
     height: 39px;

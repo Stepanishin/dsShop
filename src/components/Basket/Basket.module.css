@@ -123,22 +123,7 @@
     margin-left: auto;
 }
 
-.toSubmitFormBtn {
-    margin-top: 30px;
-    background-color: #4f46e5;
-    border: none;
-    border-radius: 9px;
-    color: #fff;
-    cursor: pointer;
-    text-align: center;
-    width: 120px;
-    height: 42px;
-    align-self: center;
-    font-weight: 600;
-}
-.toSubmitFormBtn:hover {
-    background-color: #4338ca;
-}
+
 
 @media screen and (max-width: 1191px) {
     .item_data_container {

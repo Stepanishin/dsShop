@@ -47,6 +47,22 @@ const CategoryNav = () => {
             >
                 NFT
             </NavLink>
+
+            <NavLink 
+                to='/Profile'                   
+                className={({ isActive }) =>
+            [
+              "category_link",
+              isActive ? "category_link_active" : null,
+            ]
+              .filter(Boolean)
+              .join(" ")
+            }
+            end
+            onClick={switchEfect}
+            >
+                Profile
+            </NavLink>
         </div>
     );
 };

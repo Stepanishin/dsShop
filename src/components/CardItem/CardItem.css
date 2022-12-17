@@ -10,3 +10,7 @@
     color: #FFCC15;
     font-weight: 700;
 }
+
+.swiper-slide {
+    min-width: 170px !important;
+}

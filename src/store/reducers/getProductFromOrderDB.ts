@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ICard } from "../../types/ICard";
 
-type DefaultCardType = {
-    orders: ICard[]
-}
+// type DefaultCardType = {
+//     orders: ICard[]
+// }
 
-const initialState : DefaultCardType = {  
+const initialState : any = {  
     orders: []
 }
 
