@@ -13,4 +13,12 @@
 
 .swiper-slide {
     min-width: 170px !important;
+    max-width: 250px !important;
 }
+
+@media screen and (max-width: 1200px) {
+    .swiper {
+        width: 2500px !important;
+    }
+}
+
