@@ -55,7 +55,8 @@
         "image": "https://i.ibb.co/kMFHKpH/lilu.jpg",
         "priceUSDC": 2,
         "priceNCTR": 4,
-        "category": "nft"
+        "category": "nft",
+        "description": "This NFT belongs to the main Dust City collection. Staking this NFT will earn $NCTR 15 per day"
       }    
     ]
   }

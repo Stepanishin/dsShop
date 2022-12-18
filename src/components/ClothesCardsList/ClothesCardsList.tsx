@@ -59,9 +59,15 @@ const ClothesCardsList:FC = () => {
                         <img className={styles.CurrentCard_image} src={card.image} alt="" />
                         <p>{card.name}</p>
                     </div>
+                    {
+                        card.description &&
+                        <div className={styles.CurrentCard_pricebtn_wrap}>
+                            {card.description}
+                        </div>
+                    }
                     <div className={styles.CurrentCard_pricebtn_wrap}>
                         
-                        <p className={styles.Card_data_price}>
+                         <p className={styles.Card_data_price}>
                             <span>Price: </span>
                             <span className={styles.smallLetter}>$USDC</span> <span className={styles.bigLetter}>{card.priceUSDC.toLocaleString('ru')}</span> +
                             <span className={styles.smallLetter}>$NCTR</span> <span className={styles.bigLetter}>{card.priceNCTR.toLocaleString('ru')}</span>

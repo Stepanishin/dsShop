@@ -59,6 +59,12 @@ const NFTCardsList:FC = () => {
                         </div>
                         <p>{card.name}</p>
                     </div>
+                    {
+                        card.description &&
+                        <div className={styles.CurrentCard_pricebtn_wrap}  style={{color:'#f5f7fa66'}}> 
+                            {card.description}
+                        </div>
+                    }
                     <div className={styles.CurrentCard_pricebtn_wrap}>
                         <p className={styles.Card_data_price}>
                             <span>Price: </span>
@@ -69,7 +75,6 @@ const NFTCardsList:FC = () => {
                     </div>
                     <div className={styles.CurrentCard_btn_wrap}>
                         <Cart id={card.id} name={card.name} image={card.image} priceUSDC={card.priceUSDC} priceNCTR={card.priceNCTR} />
-                        
                     </div>
                 </div>
             </section>

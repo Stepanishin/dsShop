@@ -28,8 +28,8 @@
     padding: 30px 0px;
 }
 .CurrentCard_image_container {
-    width: 200px;
-    height: 200px;
+    width: 140px;
+    height: 140px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,12 +40,12 @@
     margin-right: 24px;
 }
 .CurrentCard_image {
-    width: 160px;
-    height: 160px;
+    width: 120px;
+    height: 120px;
     border-radius: 30px
 }
 .CurrentCard_pricebtn_wrap {
-    padding: 25px 0px;
+    padding: 25px 10px;
     display: flex;
     flex-direction: column;
     width: 100%;

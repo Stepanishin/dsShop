@@ -33,7 +33,7 @@
     border-radius: 20px
 }
 .CurrentCard_pricebtn_wrap {
-    padding: 25px 0px;
+    padding: 25px 10px;
     display: flex;
     flex-direction: column;
     width: 100%;

@@ -6,5 +6,6 @@ export interface ICard {
     priceNCTR?:number,
     quantity?:number,
     modelNumber?: string,
-    category?: string
+    category?: string,
+    description?: string
 }
