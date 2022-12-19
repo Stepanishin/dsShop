@@ -8,13 +8,14 @@ import db from '../../assets/db.json'
 
 const initialState : any = {
     card: {
-        "id": 1,
-        "name": "Gift Set Hoodie S size + T-shirt S size",
-        "image": "https://i.ibb.co/BwZPkyh/box3.png",
-        "priceUSDC": 1,
-        "priceNCTR": 2,
-        "modelNumber": "MT91547",
-        "category": "clothes"
+        // "id": 1,
+        // "name": "Gift Set Hoodie S size + T-shirt S size",
+        // "image": "https://i.ibb.co/BwZPkyh/box3.png",
+        // "priceUSDC": 1,
+        // "priceNCTR": 2,
+        // "modelNumber": "MT91547",
+        // "category": "clothes",
+        // "isQuantity": false
     }
 }
 

@@ -279,10 +279,7 @@ const SubmitForm:FC<ISubmitFormProps> = ({totalPrice}) => {
 
             <Loader />
 
-            <Toaster
-            position="top-center"
-            reverseOrder={false}
-            />
+
 
         </form>
     );

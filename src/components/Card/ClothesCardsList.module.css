@@ -13,6 +13,7 @@
 .CardsList_nav::-webkit-scrollbar {
     width: 0;
 }
+
 .CurrentCard {
     display: flex; 
     flex-direction: column; 
@@ -27,22 +28,9 @@
     border-bottom: 1px solid #22242B;
     padding: 30px 0px;
 }
-.CurrentCard_image_container {
-    width: 140px;
-    height: 140px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    box-sizing: border-box;
-    border: 1px solid rgba(245,247,250,.1);
-    border-radius: 30px;
-    margin-right: 24px;
-}
 .CurrentCard_image {
-    width: 120px;
-    height: 120px;
-    border-radius: 30px
+    width: 160px;
+    border-radius: 20px
 }
 .CurrentCard_pricebtn_wrap {
     padding: 25px 10px;
@@ -62,6 +50,7 @@
     line-height: 16px;
     color: white;
 }
+
 .CurrentCard_btn_wrap {
     padding: 25px 0px;
     display: flex;
@@ -79,6 +68,8 @@
 .bigLetter {
     font-weight: 600;
 } 
+
+
 .ray_link {
     color: #ffcc15;
     text-decoration: none;
@@ -94,13 +85,8 @@
     .CurrentCard_imgName_wrap {
         gap: 20px;
     }
-    .CurrentCard_image_container {
-        width: 120px;
-        height: 120px;
-    }
     .CurrentCard_image {
         width: 100px;
-        height: 100px;
         border-radius: 20px
     }
 }

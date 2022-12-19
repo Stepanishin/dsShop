@@ -3,102 +3,31 @@
     z-index: 0;
     max-width: 1440px;
     margin: 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
 }
-
-.CardsList_nav {
-    max-width: 1040px;
-    border-bottom: 1px solid #22242B;
-    padding: 12px 5px 10px 5px;
-}
-.CardsList_nav::-webkit-scrollbar {
+.CardsList::-webkit-scrollbar {
     width: 0;
 }
 
-.CurrentCard {
-    display: flex; 
-    flex-direction: column; 
-    align-items: center;
-}
-.CurrentCard_imgName_wrap {
-    display: flex;
+.CardsList_title_container {
+    flex: none;
     width: 100%;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 100px;
-    border-bottom: 1px solid #22242B;
-    padding: 30px 0px;
-}
-.CurrentCard_image {
-    width: 160px;
-    border-radius: 20px
-}
-.CurrentCard_pricebtn_wrap {
-    padding: 25px 10px;
+    height: 42px;
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
+    flex-direction: row;
     justify-content: center;
-    gap: 10px;
+    align-items: center;
+    gap: 16px;
     border-bottom: 1px solid #22242B;
 }
-.Card_data_price {
-    font-family: 'Roboto';
+.CardsList_title {
+    font-family: TT Supermolot Neue;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 14px;
-    line-height: 16px;
-    color: white;
-}
-
-.CurrentCard_btn_wrap {
-    padding: 25px 0px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.smallLetter {
-    font-size: 80%;
-    font-weight: 600;
-}
-.bigLetter {
-    font-weight: 600;
-} 
-
-
-.ray_link {
-    color: #ffcc15;
-    text-decoration: none;
-    font-size: 12px;
-}
-@media screen and (max-width: 1300px) {
-    .CardsList {
-
-    }
-}
-
-@media screen and (max-width: 901px) {
-    .CurrentCard_imgName_wrap {
-        gap: 20px;
-    }
-    .CurrentCard_image {
-        width: 100px;
-        border-radius: 20px
-    }
-}
-
-@media screen and (max-width: 1200px) {
-    .CardsList {
-
-    }
-}
-
-@media screen and (max-width: 500px) {
-    .CardsList {
-
-    }
+    line-height: 121%;
+    color: #f5f7fa; 
 }

@@ -79,7 +79,10 @@ const Profile:FC = () => {
                                         order.userOrder.map((item, index) => {
                                             return (
                                                 <div className={styles.Profile_order_item_container} key={index}>
-                                                    <p>{item.name}</p>
+                                                    <div>
+                                                        <p>{item.name}</p>
+                                                        {item.selectedSize && <p>Size: {item.selectedSize}</p>}
+                                                    </div>
                                                     <img width={45} height={35} src={item.image} alt="" />
                                                     <p>Quantity : {item.quantity}</p>
                                                 </div>

@@ -1,3 +1,24 @@
+.Card {
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #22242B;
+    border-radius: 10px;
+    justify-content: flex-start;
+    padding: 10px 10px;
+    gap: 10px;
+    width: 280px;
+    height: 370px;
+}
+.Card_img_container {
+    height: 260px;
+}
+.Card_img {
+    width: 250px;
+    border-radius: 20px;
+}
+
 .Card_name {
     font-family: 'Roboto';
     font-style: normal;
@@ -6,15 +27,30 @@
     line-height: 16px;
     color: #979797;
 }
-.Card_name_active {
-    color: #FFCC15;
+
+.Card_btn {
+    width: 131px;
+    height: 39px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-family: TT Supermolot Neue;
+    /* font-style: normal; */
     font-weight: 700;
+    font-size: 16px;
+    line-height: 0px;
+    color: #22242b;
+    background: #FFCC15;
+    border-radius: 9px;
+    transition: all .15s ease-in;
+    cursor: pointer;
+    
+}
+.Card_btn:hover {
+    background-color: #cda100;
 }
 
-.swiper-slide {
-    min-width: 170px !important;
-    max-width: 250px !important;
-}
 
 @media screen and (max-width: 1200px) {
     .swiper {

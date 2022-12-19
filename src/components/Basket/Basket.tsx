@@ -31,7 +31,7 @@ const Basket:FC = () => {
 
     // Removing an item from the cart
     const deleteCard = (e:React.MouseEvent<HTMLButtonElement>) => {
-        const newCards = cards.filter(card => card.id != parseInt((e.target as HTMLInputElement).id));
+        const newCards = cards.filter(card => card._id != parseInt((e.target as HTMLInputElement).id));
         dispatch(addCard(newCards))
     }
 
@@ -65,10 +65,9 @@ const Basket:FC = () => {
 
     return (
                 <nav id='basket' className={styles.Basket}>
-                    <h2 className={styles.Basket_title}>My Basket</h2>
-                    <button className={styles.closeBasket} id='closeBasket' onClick={showCart} >
-                        <img src={close} alt="close" />
-                    </button>
+                    <div className={styles.Basket_title_container}>
+                        <h2 className={styles.Basket_title}>Basket</h2>
+                    </div>
                     {
                     cards.length > 0
                     ?
@@ -76,17 +75,16 @@ const Basket:FC = () => {
                     {
                         cards.map(item => {
                             return (
-                                <div className={styles.Basket_order_item_container} key={item.id}>
+                                <div className={styles.Basket_order_item_container} key={item._id}>
                                     <img className={styles.item_data_image} src={item.image} alt="box" width='90px' height='51px' />
                                     <div className={styles.item_data_container}>
                                         <h3 style={{fontWeight: '600'}}>{item.name}</h3>
                                         <div className={styles.item_data_quantity_container}>
-                                            <div className={styles.item_data_quantity_btnsWrapper}>
-                                                <button className={styles.item_data_quantity_btn} onClick={decrementQuality} id={`${item.id}`}>-</button>
-                                                <p>{item.quantity}</p>
-                                                <button className={styles.item_data_quantity_btn} onClick={incrementQuantity} id={`${item.id}`}>+</button>
-                                            </div>
-                                            <button className={styles.item_data_quantity_removeBtn} onClick={deleteCard} id={`${item.id}`}>Remove</button>
+                                            <p>Quantity: {item.quantity}</p>
+                                            {
+                                                item.selectedSize && <p>Size: {item.selectedSize}</p>
+                                            }
+                                            <button className={styles.item_data_quantity_removeBtn} onClick={deleteCard} id={`${item._id}`}>Remove</button>
                                         </div>
                                     </div>
                                     <div className={styles.item_data_quantity_priceWrap}>   

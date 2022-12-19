@@ -21,6 +21,7 @@ import { FC, ReactNode, useMemo } from 'react';
 import { clusterApiUrl } from '@solana/web3.js';
 import ShopPage from './pages/ShopPage/ShopPage';
 import { initializeApp } from "firebase/app";
+import { Toaster } from 'react-hot-toast';
 
 function App() {
 
@@ -42,6 +43,10 @@ function App() {
     <Context>
       <div className="App">
         <Header />
+        <Toaster
+            position="top-center"
+            reverseOrder={false}
+            />
         <ShopPage />
       </div>
     </Context>

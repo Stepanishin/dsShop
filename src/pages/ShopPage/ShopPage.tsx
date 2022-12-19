@@ -15,7 +15,7 @@ const ShopPage:FC = () => {
             <div className={styles.ShopPage_bg_container}>
                 <div className={styles.ShopPage_bg}></div>
             </div>
-            <div onClick={showCart} id='modalAll' className={styles.modal}></div>
+            {/* <div onClick={showCart} id='modalAll' className={styles.modal}></div> */}
             {/* <div onClick={useShowProfile} id='modalAllProfile' className={styles.modal}></div> */}
             <div className={styles.ShopPage_wrapper}>
                 <CategoryNav />
@@ -33,7 +33,6 @@ const ShopPage:FC = () => {
                     </Routes>
                 </div>
             </div>
-            <Basket />
         </main>
     );
 };

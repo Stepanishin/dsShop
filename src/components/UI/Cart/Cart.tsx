@@ -11,7 +11,7 @@ import toast from 'react-hot-toast';
 
 
 
-const Cart:FC<ICard> = ({ id, name, image, priceUSDC, priceNCTR}) => {
+const Cart:FC<ICard> = ({ id, name, image, priceUSDC, priceNCTR,isQuantity,quantity,selectedSize,size}) => {
 
     let {card} = useAppSelector(state => state.getCurrentCardSlice)
 
@@ -29,7 +29,9 @@ const Cart:FC<ICard> = ({ id, name, image, priceUSDC, priceNCTR}) => {
 
     // a function that determines whether there are goods in the cart
     useEffect(() => {
-        const is = cards.filter((card)=> card.id === id )
+        // const is = cards.filter((card)=> card.id === id )
+        // is.length > 0 ? setIsProductInBasket(true) :  setIsProductInBasket(false)
+        const is = cards.filter((card)=> card.isQuantity === false && card.id == id )
         is.length > 0 ? setIsProductInBasket(true) :  setIsProductInBasket(false)
     }, [cards, card])
 
@@ -42,7 +44,10 @@ const Cart:FC<ICard> = ({ id, name, image, priceUSDC, priceNCTR}) => {
             image: image,
             priceUSDC: priceUSDC,
             priceNCTR: priceNCTR,
-            quantity: 1,
+            quantity: quantity,
+            isQuantity: isQuantity,
+            selectedSize: selectedSize,
+            _id: Date.now()
         }]
         dispatch(addCard(cards))
     }
@@ -53,6 +58,10 @@ const Cart:FC<ICard> = ({ id, name, image, priceUSDC, priceNCTR}) => {
                 isProductInBasket
                 ?
                 <button className={styles.Cart_data_button_added}><img className={styles.Cart_data_button_complete} src={added} alt="added" /></button>
+                :
+                size
+                ?
+                <button disabled={!selectedSize} onClick={addToBasket} className={styles.Cart_data_button_add}><img src={cart} alt="Cart" /></button>
                 :
                 <button onClick={addToBasket} className={styles.Cart_data_button_add}><img src={cart} alt="Cart" /></button>
             }      
