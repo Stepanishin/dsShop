@@ -55,7 +55,10 @@ const Card:FC = () => {
                     card && 
                     <div className={styles.CurrentCard}>
                     <div className={styles.CurrentCard_imgName_wrap}>
-                        <img className={styles.CurrentCard_image} src={card.image} alt="" />
+                        <a  href="#bigSize">
+                            <img className={styles.CurrentCard_image} src={card.image} />
+                        </a>
+                        <a id="bigSize" href="#" className="full" style={{backgroundImage:`url(${card.image})`}}></a>
                         <div>
                             <p>{card.name}</p>
                             {
@@ -101,13 +104,16 @@ const Card:FC = () => {
                         
                          <p className={styles.Card_data_price}>
                             <span>Price: </span>
-                            <span className={styles.smallLetter}>$USDC</span> <span className={styles.bigLetter}>{card.priceUSDC}</span> +
-                            <span className={styles.smallLetter}>$NCTR</span> <span className={styles.bigLetter}>{card.priceNCTR}</span>
+                            <div>
+                                {card.priceUSDC > 0 && <><span className={styles.smallLetter}>$USDC</span> <span className={styles.bigLetter}>{card.priceUSDC}</span> <br /> </> }
+                                {card.priceNCTR > 0 && <><span className={styles.smallLetter}>$NCTR</span> <span className={styles.bigLetter}>{card.priceNCTR} </span><br /></> }
+                                {card.priceSOL > 0 && <><span className={styles.smallLetter}>$SOL</span> <span className={styles.bigLetter}>{card.priceSOL} </span></> }
+                            </div>
                         </p>
                         <a className={styles.ray_link} href="https://raydium.io/swap?inputCurrency=sol&outputCurrency=AgnHzGspNu7F3nFM4izuPt5g7m1URjVaTaFNgvqSXcjC&fixed=in" target="_blank" rel="noreferrer">Swap $NCTR on Raydium</a>          
                     </div>
                     <div className={styles.CurrentCard_btn_wrap}>
-                        <Cart id={card.id} name={card.name} image={card.image} priceUSDC={card.priceUSDC} priceNCTR={card.priceNCTR} isQuantity={card.isQuantity} quantity={quantity} selectedSize={selectedSize} size={card.size} />
+                        <Cart id={card.id} name={card.name} image={card.image} priceUSDC={card.priceUSDC} priceNCTR={card.priceNCTR} priceSOL={card.priceSOL} isQuantity={card.isQuantity} quantity={quantity} selectedSize={selectedSize} size={card.size} />
                     </div>
                 </div>
                 }                

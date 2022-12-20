@@ -35,3 +35,20 @@
 .item_data_quantity_btn:hover {
     opacity: 1;
 }
+
+.full {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 8%;
+    background: #CCC center no-repeat;
+    background: rgba(0, 0, 0, 0.5) center no-repeat;
+    background-size: contain;
+    background-origin: content-box;
+  }
+a:focus + .full {
+    display: block;
+}

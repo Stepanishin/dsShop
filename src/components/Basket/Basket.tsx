@@ -12,6 +12,7 @@ const Basket:FC = () => {
     const [totalPrice, setTotalPrice] = useState({
         $USDC: 0,
         $NCTR: 0,
+        $SOL: 0,
     })
 
     let {cards} = useAppSelector(state => state.addCardSlice)
@@ -19,47 +20,21 @@ const Basket:FC = () => {
     const dispatch = useAppDispatch()
 
     // Calculating the total price in the cart
-    useEffect(() => {
+    useEffect(() => {  
         let sumUSDC:number = 0
         let sumNCTR:number = 0
+        let sumSOL:number = 0
         cards.map(card => {
             sumUSDC += (card.priceUSDC! * card.quantity!)
             sumNCTR += (card.priceNCTR! * card.quantity!)
+            sumSOL += (card.priceSOL! * card.quantity!)
         })
-        setTotalPrice(state => ({ ...state, $USDC: sumUSDC, $NCTR: sumNCTR}));
+        setTotalPrice(state => ({ ...state, $USDC: sumUSDC, $NCTR: sumNCTR, $SOL: sumSOL}));
     }, [cards])
 
     // Removing an item from the cart
     const deleteCard = (e:React.MouseEvent<HTMLButtonElement>) => {
         const newCards = cards.filter(card => card._id != parseInt((e.target as HTMLInputElement).id));
-        dispatch(addCard(newCards))
-    }
-
-    // Increase the number of items in the cart
-    const incrementQuantity = (e:React.MouseEvent<HTMLButtonElement>) => {
-        let currentId = parseInt((e.target as HTMLInputElement).id)!
-        let newCards = cards.map(card => {
-            if (card.id == currentId) {
-                let quantity = card.quantity! + 1
-                return card = {...card, quantity : quantity}
-            } else {
-                return card
-            }
-        })
-        dispatch(addCard(newCards))
-    }
-
-    // Reducing the number of items in the cart
-    const decrementQuality = (e:React.MouseEvent<HTMLButtonElement>) => {
-        let currentId = parseInt((e.target as HTMLInputElement).id)!
-        let newCards = cards.map(card => {
-            if (card.id == currentId) {
-                let quantity = card.quantity! - 1
-                return card = {...card, quantity : quantity}
-            } else {
-                return card
-            }
-        }).filter(card => card.quantity != 0)
         dispatch(addCard(newCards))
     }
 
@@ -88,7 +63,11 @@ const Basket:FC = () => {
                                         </div>
                                     </div>
                                     <div className={styles.item_data_quantity_priceWrap}>   
-                                        <p><b><span style={{fontSize:'80%'}}>$USDC</span> {(item.priceUSDC! * item.quantity!).toLocaleString('ru')} <br /> <span style={{fontSize:'80%'}}>$NCTR</span> {(item.priceNCTR! * item.quantity!).toLocaleString('ru')}</b></p>
+                                        <p><b>
+                                            {item.priceUSDC > 0 && <><span style={{fontSize:'80%'}}>$USDC</span> {(item.priceUSDC! * item.quantity!).toLocaleString('ru')} <br /></>}  
+                                            {item.priceNCTR > 0 && <><span style={{fontSize:'80%'}}>$NCTR</span> {(item.priceNCTR! * item.quantity!).toLocaleString('ru')} <br /></>}  
+                                            {item.priceSOL > 0 && <><span style={{fontSize:'80%'}}>$SOL</span> {(item.priceSOL! * item.quantity!).toLocaleString('ru')}</>}  
+                                        </b></p>
                                     </div>
                                 </div>
                             )
@@ -104,7 +83,11 @@ const Basket:FC = () => {
                 <div className={styles.Basket_list_container}>
                     <div className={styles.Basket_price_container}>
                         <p><b>Total</b></p>
-                        <p><b><span style={{fontSize:'80%'}}>$USDC</span> {(totalPrice.$USDC).toLocaleString('ru')} + <span style={{fontSize:'80%'}}>$NCTR</span> {(totalPrice.$NCTR).toLocaleString('ru')}</b></p>
+                        <p><b>
+                            {totalPrice.$USDC > 0 && <><span style={{fontSize:'80%'}}>$USDC</span> {(totalPrice.$USDC).toLocaleString('ru')} <br /> </>}
+                            {totalPrice.$NCTR > 0 && <><span style={{fontSize:'80%'}}>$NCTR</span> {(totalPrice.$NCTR).toLocaleString('ru')} <br /> </>}
+                            {totalPrice.$SOL > 0 && <><span style={{fontSize:'80%'}}>$SOL</span> {(totalPrice.$SOL).toLocaleString('ru')}</>}
+                        </b></p>
                     </div>  
                 </div>
 

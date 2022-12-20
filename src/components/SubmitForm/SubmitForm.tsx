@@ -42,8 +42,7 @@ const SubmitForm:FC<ISubmitFormProps> = ({totalPrice}) => {
     let loader : HTMLElement
 
     useEffect(()=> {
-        let sumUSDC = totalPrice.$USDC
-        setResult({...result, ['sumUSDC']: sumUSDC, ['sumNCTR']: totalPrice.$NCTR, ['wallet']: publicKey?.toBase58(), ['userOrder']: cards})
+        setResult({...result, ['sumUSDC']: totalPrice.$USDC, ['sumNCTR']: totalPrice.$NCTR, ['sumSOL']: totalPrice.$SOL, ['wallet']: publicKey?.toBase58(), ['userOrder']: cards})
     }, [totalPrice,publicKey])
 
     let mintNCTRAdress = 'AgnHzGspNu7F3nFM4izuPt5g7m1URjVaTaFNgvqSXcjC'
@@ -123,6 +122,7 @@ const SubmitForm:FC<ISubmitFormProps> = ({totalPrice}) => {
 
             let lamportsI = LAMPORTS_PER_SOL*result.sumNCTR!;
             let lamportsII = 1000000*result.sumUSDC!;
+            let lamportsIII = LAMPORTS_PER_SOL*result.sumSOL!
 
             const transaction = new Transaction().add(
                 createTransferInstruction(
@@ -141,6 +141,14 @@ const SubmitForm:FC<ISubmitFormProps> = ({totalPrice}) => {
                     lamportsII,
                     [],
                     TOKEN_PROGRAM_ID
+                )
+            ).add(
+                SystemProgram.transfer(
+                    {
+                        fromPubkey: publicKey,
+                        toPubkey: new PublicKey(theWallet),
+                        lamports: lamportsIII,
+                    }
                 )
             )
 

@@ -12,6 +12,7 @@ export interface ISubmitFormResult {
     wallet?: string,
     sumUSDC?: number,
     sumNCTR?: number,
+    sumSOL?: number,
     userOrder?:ICard[],
     status?: string,
     phone?: string,

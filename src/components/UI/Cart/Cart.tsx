@@ -11,7 +11,7 @@ import toast from 'react-hot-toast';
 
 
 
-const Cart:FC<ICard> = ({ id, name, image, priceUSDC, priceNCTR,isQuantity,quantity,selectedSize,size}) => {
+const Cart:FC<ICard> = ({ id, name, image, priceUSDC, priceNCTR,isQuantity,quantity,selectedSize,size, priceSOL}) => {
 
     let {card} = useAppSelector(state => state.getCurrentCardSlice)
 
@@ -26,6 +26,9 @@ const Cart:FC<ICard> = ({ id, name, image, priceUSDC, priceNCTR,isQuantity,quant
     const succes = () => {
         toast.success('The product has been added to the cart!')
     };
+    const error = () => {
+        toast.error('Please choose size!')
+    };
 
     // a function that determines whether there are goods in the cart
     useEffect(() => {
@@ -36,7 +39,7 @@ const Cart:FC<ICard> = ({ id, name, image, priceUSDC, priceNCTR,isQuantity,quant
     }, [cards, card])
 
     // function to add items to the cart
-    const addToBasket = () => {
+    const addToBasket = (e:any) => {
         succes()
         cards = [...cards, {
             id: id,
@@ -44,6 +47,7 @@ const Cart:FC<ICard> = ({ id, name, image, priceUSDC, priceNCTR,isQuantity,quant
             image: image,
             priceUSDC: priceUSDC,
             priceNCTR: priceNCTR,
+            priceSOL: priceSOL,
             quantity: quantity,
             isQuantity: isQuantity,
             selectedSize: selectedSize,
@@ -61,7 +65,11 @@ const Cart:FC<ICard> = ({ id, name, image, priceUSDC, priceNCTR,isQuantity,quant
                 :
                 size
                 ?
-                <button disabled={!selectedSize} onClick={addToBasket} className={styles.Cart_data_button_add}><img src={cart} alt="Cart" /></button>
+                selectedSize
+                ?
+                <button onClick={addToBasket} className={styles.Cart_data_button_add}><img src={cart} alt="Cart" /></button>
+                :
+                <button onClick={error} className={styles.Cart_data_button_disabled}><img src={cart} alt="Cart" /></button>
                 :
                 <button onClick={addToBasket} className={styles.Cart_data_button_add}><img src={cart} alt="Cart" /></button>
             }      

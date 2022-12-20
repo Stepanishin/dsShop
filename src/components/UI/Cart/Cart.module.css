@@ -56,3 +56,23 @@
 .Cart_data_button_add:disabled {
     background: rgba(245,247,250,.1);
 }
+
+.Cart_data_button_disabled {
+    width: 131px;
+    height: 39px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-family: TT Supermolot Neue;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 0px;
+    letter-spacing: .26px;
+    color: #22242b;
+    background: rgba(245,247,250,.1);
+    border-radius: 9px;
+    transition: all .15s ease-in;
+    cursor: pointer;
+}

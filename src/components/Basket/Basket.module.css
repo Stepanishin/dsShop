@@ -110,6 +110,7 @@
 .Basket_price_container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .Basket_price_container p {
@@ -117,7 +118,8 @@
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
-    line-height: 34px;  
+    line-height: 20px;  
+    
 }
 
 .Basket_price_container p b {

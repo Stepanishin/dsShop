@@ -6,6 +6,7 @@
         "image": "https://i.ibb.co/BwZPkyh/box3.png",
         "priceUSDC": 1,
         "priceNCTR": 2,
+        "priceSOL": 0,
         "modelNumber": "MT91547",
         "category": "clothes",
         "description":"Beautiful gift set of hoodie and t-shirt with branding Dust City",
@@ -18,8 +19,9 @@
         "id": 7,
         "name": "NFT 1/1 Dust City 5th Element",
         "image": "https://i.ibb.co/kMFHKpH/lilu.jpg",
-        "priceUSDC": 2,
+        "priceUSDC": 0,
         "priceNCTR": 4,
+        "priceSOL": 0,
         "category": "nft",
         "description": "This NFT belongs to the main Dust City collection. Staking this NFT will earn $NCTR 15 per day",
         "isQuantity": false

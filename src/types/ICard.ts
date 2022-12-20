@@ -5,6 +5,7 @@ export interface ICard {
     image?: string,
     priceUSDC?:number,
     priceNCTR?:number,
+    priceSOL?:number,
     isQuantity?:boolean,
     quantity?:number,
     modelNumber?: string,
