@@ -48,6 +48,7 @@
     background: rgba(0, 0, 0, 0.5) center no-repeat;
     background-size: contain;
     background-origin: content-box;
+    z-index: 1;
   }
 a:focus + .full {
     display: block;
